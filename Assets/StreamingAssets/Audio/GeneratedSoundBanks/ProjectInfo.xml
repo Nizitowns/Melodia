@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo>
+	<Project Name="Rapapan_WwiseProject" GUID="{7259A28B-2C01-4F2E-B4C2-8DEA70DC54FD}" Generator="2023.1.4.8496"/>
+	<CacheRoot>../../../../../../WwiseProjects/Rapapan_WwiseProject/.cache</CacheRoot>
+	<Platforms>
+		<Platform Name="Mac" GUID="{D783701A-9C20-46F7-8973-83F5BEF38407}" BasePlatform="Mac" BasePlatformGUID="{9C6217D5-DD11-4795-87C1-6CE02853C540}" Path="../../../../../../WwiseProjects/Rapapan_WwiseProject/GeneratedSoundBanks/Mac"/>
+		<Platform Name="Windows" GUID="{4B991BD3-B259-427C-87F1-D62F67D358C1}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="../../../../../../WwiseProjects/Rapapan_WwiseProject/GeneratedSoundBanks/Windows"/>
+	</Platforms>
+	<Languages>
+		<Language Name="English(US)" Id="684519430" GUID="{A7ED9D1C-4A28-412B-9536-4E7D2CA9E634}" Default="true" UseAsStandIn="true"/>
+	</Languages>
+	<FileHash>{75E79B88-A7FC-95B5-B150-23CEEBA8DA11}</FileHash>
+</ProjectInfo>
