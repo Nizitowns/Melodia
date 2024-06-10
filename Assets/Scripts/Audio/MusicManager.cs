@@ -6,8 +6,10 @@ public class MusicManager : MonoBehaviour
 {
 
     // MUSIC MANAGER VARIABLES
-    // private AK.Wwise.Event musicName = null;
+    // private AK.Wwise.Event mainMusic = null;
     // private AK.Wwise.RTPC RTPCName = null;
+
+    private bool musicPlaying = false;
 
 
     private void Awake()
@@ -19,9 +21,13 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
+        // Launch Music on Start
+        if (!musicPlaying)
+        {
+            musicPlaying = true;
+            AkSoundEngine.PostEvent("MainMusicStart", gameObject);
+        }
+    }   
     // Update is called once per frame
     void Update()
     {
