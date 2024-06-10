@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 2c98ff527026364180be5ea246f77a6d
     GuidInternal: 
-    m_lastTime: -8584836340685159039
+    m_lastTime: -8584835598328613669
     List:
     - name: Main
       guid: cea0c036d5854b4b9e3e47665d58ce53
@@ -94,8 +94,25 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 60537c9e0fe6304b80516527ced18a39
     GuidInternal: 
-    m_lastTime: -8584836393291853488
-    List: []
+    m_lastTime: -8584835597490396490
+    List:
+    - name: MainMusicStart
+      guid: e67ffa17ce19e7478750cf81203d350d
+      id: 4005935157
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 60537c9e0fe6304b80516527ced18a39
+      - ElementName: MainMusicStart
+        ObjectType: 3
+        guid: e67ffa17ce19e7478750cf81203d350d
+      Path: Events\Default Work Unit\MainMusicStart
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -153,7 +170,7 @@ MonoBehaviour:
     m_lastTime: -8584836393290892618
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 090000000a000000
+  ExpandedWaapiItemIds: 05000000060000000700000008000000090000000a000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
