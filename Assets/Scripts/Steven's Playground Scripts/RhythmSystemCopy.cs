@@ -169,7 +169,7 @@ public class RhythmSystemCopy : MonoBehaviour
     }
 
     /// <summary>
-    /// Chooses a key for the current beat.
+    /// Shows the next Simon Says key.
     /// </summary>
     private void chooseKey()
     {
@@ -201,11 +201,21 @@ public class RhythmSystemCopy : MonoBehaviour
     }
 
     /// <summary>
+    /// Checks if the player dropped a command by missing a beat.
+    /// </summary>
+    private void checkDroppedCommand()
+    {
+        if (pattern.Count > 0 && !beatUsed)
+            missedNote();
+    }
+
+    /// <summary>
     /// Sets the beat mode based on the game state.
     /// </summary>
     private void configureBeat()
     {
         OnBeat -= chooseKey;
+        OnBeat -= checkDroppedCommand;
         switch (gameState)
         {
             case State.SIMONTEACH:
@@ -214,6 +224,7 @@ public class RhythmSystemCopy : MonoBehaviour
             case State.SIMONPLAY:
                 break;
             case State.FREEPLAY:
+                OnBeat += checkDroppedCommand;
                 break;
         }
     }
@@ -232,14 +243,9 @@ public class RhythmSystemCopy : MonoBehaviour
         if (gameState == State.SIMONPLAY) 
         {
             if (button != pattern[beatsPlayed])
-            {
-                print("Wrong note!");
-                // For demonstration purposes, switch to freeplay mode
-                beatsPlayed = 0;
-                pattern = new List<int>();
-                gameState = State.FREEPLAY;
-            }
-            beatsPlayed++;
+                missedNote();
+            else
+                beatsPlayed++;
         }
         // If in freeplay mode, check if the input goes toward a command
         else if (gameState == State.FREEPLAY)
@@ -268,8 +274,7 @@ public class RhythmSystemCopy : MonoBehaviour
                 }
                 if (patternLength == pattern.Count)
                 {
-                    print("Wrong Note!");
-                    pattern = new List<int>();
+                    missedNote();
                 }
             }
         }
@@ -291,7 +296,10 @@ public class RhythmSystemCopy : MonoBehaviour
             else if (GetCurrentBeatProgress() < perfectMargin + excellentMargin + goodMargin)
                 print("Good");
             else
+            {
                 print("Miss");
+                missedNote();
+            }
         }
         else
         {
@@ -302,10 +310,33 @@ public class RhythmSystemCopy : MonoBehaviour
             else if (1 - GetCurrentBeatProgress() < perfectMargin + excellentMargin + goodMargin)
                 print("Good");
             else
+            {
                 print("Miss");
+                missedNote();
+            }
         }
 
         beatUsed = true;
+    }
+
+    /// <summary>
+    /// Resets commands, combos, and fever mode on missed notes.
+    /// </summary>
+    private void missedNote()
+    {
+        if (gameState == State.SIMONPLAY)
+        {
+            // For demonstration purposes, switch to freeplay mode
+            print("Wrong note!");
+            beatsPlayed = 0;
+            pattern = new List<int>();
+            gameState = State.FREEPLAY;
+        }
+        else if (gameState == State.FREEPLAY)
+        {
+            print("Wrong note!");
+            pattern = new List<int>();
+        }
     }
 
     #endregion
@@ -387,6 +418,7 @@ public class RhythmSystemCopy : MonoBehaviour
     private void OnDestroy()
     {
         OnBeat -= chooseKey;
+        OnBeat -= checkDroppedCommand;
     }
 
     #endregion
