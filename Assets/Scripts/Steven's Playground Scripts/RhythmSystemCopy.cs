@@ -54,7 +54,7 @@ public class RhythmSystemCopy : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Margin of error for a Perfect note, as a percentage of the beat interval.")]
-    private float perfectMargin = 0.1f;
+    private float perfectMargin = 0.2f;
 
     [SerializeField]
     [Tooltip("Margin of error for an Excellent note, as a percentage of the beat interval.")]
@@ -89,7 +89,7 @@ public class RhythmSystemCopy : MonoBehaviour
     private UnityEvent button4Event;
 
     // Possible gamestates
-    private enum State{SIMONTEACH, SIMONPLAY, FREEPLAY};
+    public enum State{SIMONTEACH, SIMONPLAY, FREEPLAY};
     // Current gamestate
     private State gameState = State.SIMONTEACH;
     // List of keys for the current pattern
@@ -115,6 +115,7 @@ public class RhythmSystemCopy : MonoBehaviour
     {
         InitializeRhythm();
         StartCoroutine(BeatRoutine());
+        borderFlicker.Invoke();
     }
 
     /// <summary>
@@ -220,7 +221,12 @@ public class RhythmSystemCopy : MonoBehaviour
         if (gameState == State.SIMONPLAY) 
         {
             if (button != pattern[beatsPlayed])
+            {
                 print("Wrong note!");
+                // For demonstration purposes, switch to freeplay mode
+                beatsPlayed = 0;
+                gameState = State.FREEPLAY;
+            }
             beatsPlayed++;
         }
         // Check the note's timing
@@ -234,22 +240,22 @@ public class RhythmSystemCopy : MonoBehaviour
     {
         if (!beatUsed)
         {
-            if (timer < perfectMargin * beatInterval)
+            if (GetCurrentBeatProgress() < perfectMargin)
                 print("Perfect");
-            else if (timer - (perfectMargin * beatInterval) < excellentMargin * beatInterval)
+            else if (GetCurrentBeatProgress() < perfectMargin + excellentMargin)
                 print("Excellent");
-            else if (timer - (perfectMargin * beatInterval) - (excellentMargin * beatInterval) < goodMargin * beatInterval)
+            else if (GetCurrentBeatProgress() < perfectMargin + excellentMargin + goodMargin)
                 print("Good");
             else
                 print("Miss");
         }
         else
         {
-            if (beatInterval - timer < perfectMargin * beatInterval)
+            if (1 - GetCurrentBeatProgress() < perfectMargin)
                 print("Perfect");
-            else if (beatInterval - timer - (perfectMargin * beatInterval) < excellentMargin * beatInterval)
+            else if (1 - GetCurrentBeatProgress() < perfectMargin + excellentMargin)
                 print("Excellent");
-            else if (beatInterval - timer - (perfectMargin * beatInterval) - (excellentMargin * beatInterval) < goodMargin * beatInterval)
+            else if (1 - GetCurrentBeatProgress() < perfectMargin + excellentMargin + goodMargin)
                 print("Good");
             else
                 print("Miss");
@@ -261,6 +267,22 @@ public class RhythmSystemCopy : MonoBehaviour
     #endregion
 
     #region Update
+
+    /// <summary>
+    /// Returns the game state.
+    /// </summary>
+    public State getGameState()
+    {
+        return gameState;
+    }
+
+    /// <summary>
+    /// Sets the game state.
+    /// </summary>
+    public void setGameState(State state)
+    {
+        gameState = state;
+    }
 
     /// <summary>
     /// Updates the beat timer and game state.

@@ -50,17 +50,15 @@ public class ButtonIndicator : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if (timer > flashTime / 2.0f)
-        {
-            timer -= Time.deltaTime;
-            alpha += (Time.deltaTime / (flashTime / 2.0f));
-        }
-        else if (timer > 0.0f)
-        {
-            timer -= Time.deltaTime;
-            alpha -= (Time.deltaTime / (flashTime / 2.0f));
-        }
+        if (timer == flashTime)
+            alpha = 1f;
+        else if (timer < (flashTime / 2.0f) && timer > 0.0f)
+            alpha -= Time.deltaTime / flashTime;
+
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, alpha);
+
+        if (timer > 0.0f)
+            timer -= Time.deltaTime;
     }
 
     #endregion
