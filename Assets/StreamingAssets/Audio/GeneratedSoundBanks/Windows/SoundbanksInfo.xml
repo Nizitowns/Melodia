@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="150">
+	<RootPaths>
+		<ProjectRoot>../../../../../../../WwiseProjects/Rapapan_WwiseProject</ProjectRoot>
+		<SourceFilesRoot>../../../../../../../WwiseProjects/Rapapan_WwiseProject/.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>../../../../../../../WwiseProjects/Rapapan_WwiseProject/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B6CBD692-12EC-CDBA-0932-48F63C40C91F}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{1FA196E4-6F8C-FCC2-75F4-E462C6513379}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="349763783" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Main music.wav</ShortName>
+					<CachePath>SFX/Main music_D95B34B4.wem</CachePath>
+				</File>
+				<File Id="786987112" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MainMusic_Click.wav</ShortName>
+					<CachePath>SFX/MainMusic_Click_D95B34B4.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="4005935157" Name="MainMusicStart" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="349763783"/>
+						<MediaRef Id="786987112"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{55F8AD25-D4EA-5066-5A62-F414668AF6A5}</FileHash>
+</SoundBanksInfo>

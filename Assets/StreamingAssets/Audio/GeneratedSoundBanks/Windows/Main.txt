@@ -1,0 +1,7 @@
+Event	ID	Name			Wwise Object Path	Notes
+	4005935157	MainMusicStart			\Default Work Unit\MainMusicStart	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	349763783	Main music	C:\Users\noah_\Documents\WwiseProjects\Rapapan_WwiseProject\.cache\Windows\SFX\Main music_D95B34B4.wem		\Interactive Music Hierarchy\Default Work Unit\MainPlaylist\MainMusic\Main music		10421161
+	786987112	MainMusic_Click	C:\Users\noah_\Documents\WwiseProjects\Rapapan_WwiseProject\.cache\Windows\SFX\MainMusic_Click_D95B34B4.wem		\Interactive Music Hierarchy\Default Work Unit\MainPlaylist\MainMusic\MainMusic_Click		332731
+
