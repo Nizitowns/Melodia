@@ -48,6 +48,7 @@ public class RhythmSystemCopy : MonoBehaviour
     public class Command
     {
         public string name;
+        public string actionName;
         public List<int> keys;
     }
 
@@ -70,6 +71,26 @@ public class RhythmSystemCopy : MonoBehaviour
     [SerializeField]
     [Tooltip("Margin of error for a Good note, as a percentage of the beat interval.")]
     private float goodMargin = 0.3f;
+
+    [SerializeField]
+    [Tooltip("The amount the tribe moves forward.")]
+    private float moveDistance = 1.0f;
+
+    [SerializeField]
+    [Tooltip("The amount the tribe moves forward in fever mode.")]
+    private float feverMoveDistance = 2.0f;
+
+    [SerializeField]
+    [Tooltip("The amount the tribe moves backward when failing.")]
+    private float regressDistance = 0.5f;
+
+    [SerializeField]
+    [Tooltip("The amount the tribe moves backward (each beat) after a lack of progress.")]
+    private float driftDistance = 0.1f;
+
+    [SerializeField]
+    [Tooltip("The number of beats without progress before the tribe starts drifting backward.")]
+    private int staticBeatLimit = 6;
 
     [SerializeField]
     [Tooltip("The Input Manager.")]
@@ -95,6 +116,14 @@ public class RhythmSystemCopy : MonoBehaviour
     [Tooltip("The UnityEvent for button 4 flashing.")]
     private UnityEvent button4Event;
 
+    [SerializeField]
+    [Tooltip("The UnityEvent to progress forward.")]
+    private UnityEvent<float> progressEvent;
+
+    [SerializeField]
+    [Tooltip("The UnityEvent to regress backward.")]
+    private UnityEvent<float> regressEvent;
+
     // Possible gamestates
     public enum State{SIMONTEACH, SIMONPLAY, FREEPLAY};
     // Current gamestate
@@ -111,6 +140,10 @@ public class RhythmSystemCopy : MonoBehaviour
     private bool beatUsed = false;
     // Time interval between beats
     private float beatInterval;
+    // The number of beats since the tribe last progressed
+    private int staticBeats = 0;
+    // Tracking whether the tribe is drifting
+    private bool drifting = false;
     // Timer to track time since the last beat
     private float timer;
 
@@ -210,12 +243,35 @@ public class RhythmSystemCopy : MonoBehaviour
     }
 
     /// <summary>
+    /// Counts the number of beats since the tribe last progressed.
+    /// </summary>
+    private void incrementStaticBeats()
+    {
+        staticBeats++;
+        if (staticBeats >= staticBeatLimit)
+            drifting = true;
+    }
+
+    /// <summary>
+    /// If the tribe is drifting, move them backward.
+    /// </summary>
+    private void drift()
+    {
+        if (staticBeats < staticBeatLimit)
+            drifting = false;
+        if (drifting)
+            regressEvent.Invoke(driftDistance);
+    }
+
+    /// <summary>
     /// Sets the beat mode based on the game state.
     /// </summary>
     private void configureBeat()
     {
         OnBeat -= chooseKey;
         OnBeat -= checkDroppedCommand;
+        OnBeat -= incrementStaticBeats;
+        OnBeat -= drift;
         switch (gameState)
         {
             case State.SIMONTEACH:
@@ -225,6 +281,8 @@ public class RhythmSystemCopy : MonoBehaviour
                 break;
             case State.FREEPLAY:
                 OnBeat += checkDroppedCommand;
+                OnBeat += incrementStaticBeats;
+                OnBeat += drift;
                 break;
         }
     }
@@ -239,53 +297,56 @@ public class RhythmSystemCopy : MonoBehaviour
     public void pressButton(int button)
     {
         flashButton(button);
-        // If in Simon Says mode, check the input is the correct button
-        if (gameState == State.SIMONPLAY) 
+
+        // Check the note's timing
+        if (checkTiming())
         {
-            if (button != pattern[beatsPlayed])
-                missedNote();
-            else
-                beatsPlayed++;
-        }
-        // If in freeplay mode, check if the input goes toward a command
-        else if (gameState == State.FREEPLAY)
-        {
-            if (pattern.Count == 0)
-                pattern.Add(button);
-            else
+            // If in Simon Says mode, check the input is the correct button
+            if (gameState == State.SIMONPLAY)
             {
-                int patternLength = pattern.Count;
-                foreach (Command c in commandList)
+                if (button != pattern[beatsPlayed])
+                    missedNote();
+                else
+                    beatsPlayed++;
+            }
+            // If in freeplay mode, check if the input goes toward a command
+            else if (gameState == State.FREEPLAY)
+            {
+                if (pattern.Count == 0)
+                    pattern.Add(button);
+                else
                 {
-                    bool following = true;
-                    for (int i = 0; i < pattern.Count; i++)
+                    int patternLength = pattern.Count;
+                    foreach (Command c in commandList)
                     {
-                        if (c.keys[i] != pattern[i])
+                        bool following = true;
+                        for (int i = 0; i < pattern.Count; i++)
                         {
-                            following = false;
+                            if (c.keys[i] != pattern[i])
+                            {
+                                following = false;
+                                break;
+                            }
+                        }
+                        if (following && button == c.keys[pattern.Count])
+                        {
+                            pattern.Add(button);
                             break;
                         }
                     }
-                    if (following && button == c.keys[pattern.Count])
+                    if (patternLength == pattern.Count)
                     {
-                        pattern.Add(button);
-                        break;
+                        missedNote();
                     }
-                }
-                if (patternLength == pattern.Count)
-                {
-                    missedNote();
                 }
             }
         }
-        // Check the note's timing
-        checkTiming();
     }
 
     /// <summary>
-    /// Checks the played beat's timing.
+    /// Checks the played beat's timing. Returns false on missed notes.
     /// </summary>
-    private void checkTiming()
+    private bool checkTiming()
     {
         if (!beatUsed)
         {
@@ -299,6 +360,8 @@ public class RhythmSystemCopy : MonoBehaviour
             {
                 print("Miss");
                 missedNote();
+                beatUsed = true;
+                return false;
             }
         }
         else
@@ -313,10 +376,14 @@ public class RhythmSystemCopy : MonoBehaviour
             {
                 print("Miss");
                 missedNote();
+                beatUsed = true;
+                return false;
             }
         }
 
         beatUsed = true;
+
+        return true;
     }
 
     /// <summary>
@@ -335,9 +402,40 @@ public class RhythmSystemCopy : MonoBehaviour
         else if (gameState == State.FREEPLAY)
         {
             print("Wrong note!");
+            regressEvent.Invoke(regressDistance);
             pattern = new List<int>();
         }
     }
+
+    #endregion
+
+    #region Commands
+
+    /// <summary>
+    /// Performs the command based on the player's input.
+    /// </summary>
+    private void performCommand(string actionName)
+    {
+        switch (actionName)
+        {
+            case "move":
+                move();
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Perform the "move" command
+    /// </summary>
+    private void move()
+    {
+        progressEvent.Invoke(moveDistance);
+        staticBeats = 0;
+    }
+
+    #endregion
+
+    #region Combos and Fever Mode
 
     #endregion
 
@@ -397,7 +495,10 @@ public class RhythmSystemCopy : MonoBehaviour
                             break;
                     }
                     if (playedCommand != -1)
+                    {
                         print("Played Command: " + commandList[playedCommand].name);
+                        performCommand(commandList[playedCommand].actionName);
+                    }
                     else
                         print("Command not found!");
                     pattern = new List<int>();
@@ -419,6 +520,8 @@ public class RhythmSystemCopy : MonoBehaviour
     {
         OnBeat -= chooseKey;
         OnBeat -= checkDroppedCommand;
+        OnBeat -= incrementStaticBeats;
+        OnBeat -= drift;
     }
 
     #endregion

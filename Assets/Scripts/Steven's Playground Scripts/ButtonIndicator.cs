@@ -12,7 +12,7 @@ public class ButtonIndicator : MonoBehaviour
     private float flashTime = 0.25f;
 
     // Variable to track the current alpha
-    private float alpha = 0.5f;
+    private float alpha = 0f;
     // Timer to track the flash
     private float timer = 0.0f;
 
@@ -25,7 +25,7 @@ public class ButtonIndicator : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
     }
 
     #endregion
@@ -53,7 +53,9 @@ public class ButtonIndicator : MonoBehaviour
         if (timer == flashTime)
             alpha = 1f;
         else if (timer < (flashTime / 2.0f) && timer > 0.0f)
-            alpha -= Time.deltaTime / flashTime;
+            alpha -= Time.deltaTime / (flashTime / 2.0f);
+        else if (timer <= 0.0f)
+            alpha = 0f;
 
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, alpha);
 
