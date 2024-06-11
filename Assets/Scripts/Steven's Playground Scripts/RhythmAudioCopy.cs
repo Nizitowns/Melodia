@@ -60,7 +60,7 @@ public class RhythmAudioCopy : MonoBehaviour
     /// </summary>
     private void OnBeat()
     {
-        audioManager.PlaySFX(beatSFXName);
+        //audioManager.PlaySFX(beatSFXName);
     }
 
     #endregion
