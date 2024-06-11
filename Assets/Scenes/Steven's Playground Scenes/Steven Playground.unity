@@ -254,31 +254,11 @@ Transform:
   - {fileID: 1411076770}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &418831123 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1450392940579560303, guid: 71c4dc3502c502642af9917e3f8435a1, type: 3}
-  m_PrefabInstance: {fileID: 558748930}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &418831124 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 295270084199512958, guid: 71c4dc3502c502642af9917e3f8435a1, type: 3}
   m_PrefabInstance: {fileID: 558748930}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &418831126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 418831123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b32e147b388efc46ab8171036cea841, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioClips:
-  - name: BeatSound
-    clip: {fileID: 8300000, guid: 0bbfb3cce925c8c418e832b10a1e9050, type: 3}
 --- !u!1 &477337029
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,10 +346,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1450392940579560303, guid: 71c4dc3502c502642af9917e3f8435a1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 418831126}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71c4dc3502c502642af9917e3f8435a1, type: 3}
 --- !u!1 &856123782
 GameObject:
@@ -1225,7 +1202,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 120
-  patternLength: 4
+  commandList:
+  - name: Dore-Dore-Dore-La
+    keys: 04000000040000000400000003000000
+  - name: La-La-Dore-La
+    keys: 03000000030000000400000003000000
+  - name: Mire-Mire-Dore-La
+    keys: 02000000020000000400000003000000
+  - name: La-Dore-La-Dore
+    keys: 03000000040000000300000004000000
   perfectMargin: 0.2
   excellentMargin: 0.2
   goodMargin: 0.3

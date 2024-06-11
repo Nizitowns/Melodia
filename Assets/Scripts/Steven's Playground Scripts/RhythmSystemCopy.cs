@@ -44,13 +44,20 @@ public class RhythmSystemCopy : MonoBehaviour
 
     #region Fields
 
+    [System.Serializable]
+    public class Command
+    {
+        public string name;
+        public List<int> keys;
+    }
+
     [SerializeField]
     [Tooltip("Beats per minute (BPM) for the rhythm.")]
     private float bpm = 120f;
 
     [SerializeField]
-    [Tooltip("Number of keys for the Simon Says pattern.")]
-    private int patternLength = 4;
+    [Tooltip("List of commands used in the game.")]
+    private List<Command> commandList;
 
     [SerializeField]
     [Tooltip("Margin of error for a Perfect note, as a percentage of the beat interval.")]
@@ -92,9 +99,13 @@ public class RhythmSystemCopy : MonoBehaviour
     public enum State{SIMONTEACH, SIMONPLAY, FREEPLAY};
     // Current gamestate
     private State gameState = State.SIMONTEACH;
+    // The current Simon Says pattern
+    private int chosenCommand;
     // List of keys for the current pattern
     private List<int> pattern = new List<int>();
-    // Number of beats played after the Simon Says pattern is demonstrated
+    // Length of the commands
+    private int patternLength = 4;
+    // Number of beats played toward a command
     private int beatsPlayed = 0;
     // Flag for whether the player has played a note on this beat
     private bool beatUsed = false;
@@ -162,9 +173,9 @@ public class RhythmSystemCopy : MonoBehaviour
     /// </summary>
     private void chooseKey()
     {
-        int chosenKey = Random.Range(1, 5);
-        pattern.Add(chosenKey);
-        flashButton(chosenKey);
+        List<int> chosenPattern = commandList[chosenCommand].keys;
+        pattern.Add(chosenPattern[pattern.Count]);
+        flashButton(pattern[pattern.Count - 1]);
     }
 
     /// <summary>
@@ -225,9 +236,42 @@ public class RhythmSystemCopy : MonoBehaviour
                 print("Wrong note!");
                 // For demonstration purposes, switch to freeplay mode
                 beatsPlayed = 0;
+                pattern = new List<int>();
                 gameState = State.FREEPLAY;
             }
             beatsPlayed++;
+        }
+        // If in freeplay mode, check if the input goes toward a command
+        else if (gameState == State.FREEPLAY)
+        {
+            if (pattern.Count == 0)
+                pattern.Add(button);
+            else
+            {
+                int patternLength = pattern.Count;
+                foreach (Command c in commandList)
+                {
+                    bool following = true;
+                    for (int i = 0; i < pattern.Count; i++)
+                    {
+                        if (c.keys[i] != pattern[i])
+                        {
+                            following = false;
+                            break;
+                        }
+                    }
+                    if (following && button == c.keys[pattern.Count])
+                    {
+                        pattern.Add(button);
+                        break;
+                    }
+                }
+                if (patternLength == pattern.Count)
+                {
+                    print("Wrong Note!");
+                    pattern = new List<int>();
+                }
+            }
         }
         // Check the note's timing
         checkTiming();
@@ -304,10 +348,29 @@ public class RhythmSystemCopy : MonoBehaviour
                 {
                     beatsPlayed = 0;
                     pattern = new List<int>();
+                    chosenCommand = Random.Range(0, 4);
                     gameState = State.SIMONTEACH;
                 }
                 break;
             case State.FREEPLAY:
+                if (pattern.Count == patternLength)
+                {
+                    int playedCommand = -1;
+                    foreach (Command c in commandList)
+                    {
+                        playedCommand = commandList.IndexOf(c);
+                        for (int i = 0; i < pattern.Count; i++)
+                            if (c.keys[i] != pattern[i])
+                                playedCommand = -1;
+                        if (playedCommand != -1)
+                            break;
+                    }
+                    if (playedCommand != -1)
+                        print("Played Command: " + commandList[playedCommand].name);
+                    else
+                        print("Command not found!");
+                    pattern = new List<int>();
+                }
                 break;
         }
 
