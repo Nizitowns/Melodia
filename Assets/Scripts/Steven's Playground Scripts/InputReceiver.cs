@@ -50,11 +50,11 @@ public class InputReceiver : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Margin of error for an Excellent note, as a percentage of the beat interval.")]
-    private float excellentMargin = 0.3f;
+    private float excellentMargin = 0.2f;
 
     [SerializeField]
     [Tooltip("Margin of error for a Good note, as a percentage of the beat interval.")]
-    private float goodMargin = 0.3f;
+    private float goodMargin = 0.2f;
 
     // Instances
     private UIEffects uiEffects;
@@ -168,14 +168,14 @@ public class InputReceiver : MonoBehaviour
     {
         if (!beatUsed)
         {
-            if (rhythmManager.GetCurrentBeatProgress() < perfectMargin || 
-                1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin)
+            if (rhythmManager.GetCurrentBeatProgress() < perfectMargin / 2.0f || 
+                1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin / 2.0f)
                 uiEffects.giveFeedback("Perfect");
-            else if (rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin || 
-                1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin)
+            else if (rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin) / 2.0f || 
+                1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin) / 2.0f)
                 uiEffects.giveFeedback("Excellent");
-            else if (rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin + goodMargin || 
-                1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin + goodMargin)
+            else if (rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin + goodMargin) / 2.0f || 
+                1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin + goodMargin) / 2.0f)
                 uiEffects.giveFeedback("Good");
             else
             {
@@ -188,11 +188,11 @@ public class InputReceiver : MonoBehaviour
         }
         else
         {
-            if (1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin)
+            if (1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin / 2.0f)
                 uiEffects.giveFeedback("Perfect");
-            else if (1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin)
+            else if (1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin) / 2.0f)
                 uiEffects.giveFeedback("Excellent");
-            else if (1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin + goodMargin)
+            else if (1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin + goodMargin) / 2.0f)
                 uiEffects.giveFeedback("Good");
             else
             {

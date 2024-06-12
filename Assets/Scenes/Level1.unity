@@ -399,8 +399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: 5adcedcd86988014db2722f9f77e5c91, type: 3}
   perfectMargin: 0.2
-  excellentMargin: 0.3
-  goodMargin: 0.3
+  excellentMargin: 0.2
+  goodMargin: 0.2
 --- !u!1 &326340943
 GameObject:
   m_ObjectHideFlags: 0
