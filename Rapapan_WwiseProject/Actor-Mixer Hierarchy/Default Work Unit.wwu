@@ -1,6 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{C16F0B89-6FC2-43EE-A0F4-4824465FEC3E}" SchemaVersion="119">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{C16F0B89-6FC2-43EE-A0F4-4824465FEC3E}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{C16F0B89-6FC2-43EE-A0F4-4824465FEC3E}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchContainer Name="RhythmInput" ID="{D416493F-C39F-45AF-92CE-4D777378B95B}" ShortID="846981187">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>3</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2989FE60-5DF6-4CB0-BB30-6C7E4A37A4E1}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="Do" ID="{EE304E77-EE44-4D55-9F97-78245E5D63C6}" WorkUnitID="{7DDF2BFC-0CE8-4E14-9600-0825CE6B03B5}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B8767363-259E-4161-95CB-8C0FFD9E984A}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="RhythmInputSwitchGroup" ID="{13B10607-3573-436D-835A-767DB763CA9E}" WorkUnitID="{7DDF2BFC-0CE8-4E14-9600-0825CE6B03B5}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Dore" ID="{00F8F75D-DDAD-40CA-9F13-1F3116D355B7}" ShortID="807641441">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2989FE60-5DF6-4CB0-BB30-6C7E4A37A4E1}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B8767363-259E-4161-95CB-8C0FFD9E984A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Dore" ID="{E0269EAB-F047-4ED1-9C5F-81743553CA29}">
+									<Language>SFX</Language>
+									<AudioFile>Dore.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="739340601"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Dore" ID="{E0269EAB-F047-4ED1-9C5F-81743553CA29}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="La" ID="{809005DE-1BA4-49DE-B53F-31CDCE65D3D0}" ShortID="40914872">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2989FE60-5DF6-4CB0-BB30-6C7E4A37A4E1}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B8767363-259E-4161-95CB-8C0FFD9E984A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="La" ID="{455083D4-DB4E-4AFE-ACC8-6C5F92348FB5}">
+									<Language>SFX</Language>
+									<AudioFile>La.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="233236633"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="La" ID="{455083D4-DB4E-4AFE-ACC8-6C5F92348FB5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Mire" ID="{54FCEC49-2F6C-4317-9E15-756AA5061FE6}" ShortID="614554649">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2989FE60-5DF6-4CB0-BB30-6C7E4A37A4E1}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B8767363-259E-4161-95CB-8C0FFD9E984A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Mire" ID="{96201E91-B9CE-47B6-BF5E-E9ECFCCC0CCC}">
+									<Language>SFX</Language>
+									<AudioFile>Mire.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="2085650"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Mire" ID="{96201E91-B9CE-47B6-BF5E-E9ECFCCC0CCC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Do" ID="{9572D126-62BD-4772-BE3F-9C4860D766E5}" ShortID="705984001">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2989FE60-5DF6-4CB0-BB30-6C7E4A37A4E1}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B8767363-259E-4161-95CB-8C0FFD9E984A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Do" ID="{887FF096-9C29-4BB6-A362-86DD8C01FE9B}">
+									<Language>SFX</Language>
+									<AudioFile>Do.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1017258917"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Do" ID="{887FF096-9C29-4BB6-A362-86DD8C01FE9B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="Do" ID="{9572D126-62BD-4772-BE3F-9C4860D766E5}"/>
+								<PropertyList>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>1.5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Mire" ID="{54FCEC49-2F6C-4317-9E15-756AA5061FE6}"/>
+								<PropertyList>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>1.5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Dore" ID="{00F8F75D-DDAD-40CA-9F13-1F3116D355B7}"/>
+								<PropertyList>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>1.5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="La" ID="{809005DE-1BA4-49DE-B53F-31CDCE65D3D0}"/>
+								<PropertyList>
+									<Property Name="FadeOutTime" Type="Real64">
+										<ValueList>
+											<Value>1.5</Value>
+										</ValueList>
+									</Property>
+								</PropertyList>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="Mire" ID="{07E31006-F317-460E-A9D6-AA3C62DB0976}"/>
+								<ItemList>
+									<ItemRef Name="Mire" ID="{54FCEC49-2F6C-4317-9E15-756AA5061FE6}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="Do" ID="{EE304E77-EE44-4D55-9F97-78245E5D63C6}"/>
+								<ItemList>
+									<ItemRef Name="Do" ID="{9572D126-62BD-4772-BE3F-9C4860D766E5}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="La" ID="{6F4B5BD9-50F7-4BF6-A891-A1BDFFF43AC3}"/>
+								<ItemList>
+									<ItemRef Name="La" ID="{809005DE-1BA4-49DE-B53F-31CDCE65D3D0}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="Dore" ID="{C2090DE0-9E7F-48BC-BD44-F6D061673DF6}"/>
+								<ItemList>
+									<ItemRef Name="Dore" ID="{00F8F75D-DDAD-40CA-9F13-1F3116D355B7}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

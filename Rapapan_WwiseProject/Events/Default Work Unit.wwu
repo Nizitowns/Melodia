@@ -3,12 +3,27 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{9E7C5360-E60F-4B30-8051-6527CED18A39}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="MainMusicStart" ID="{17FA7FE6-19CE-47E7-8750-CF81203D350D}">
+				<Folder Name="Music" ID="{F8BACE36-C1FF-4297-9261-FFD0B3EFE413}" ShortID="82035949">
 					<ChildrenList>
-						<Action Name="" ID="{FFE5F9AF-5A94-4544-A2B3-25B8DE23259E}" ShortID="260835340">
+						<Event Name="MainMusicStart" ID="{17FA7FE6-19CE-47E7-8750-CF81203D350D}">
+							<ChildrenList>
+								<Action Name="" ID="{FFE5F9AF-5A94-4544-A2B3-25B8DE23259E}" ShortID="260835340">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MainPlaylist" ID="{BE15BEA2-43BA-4579-82F9-52032F7AB7AF}" WorkUnitID="{5F190E9F-ECDC-41A6-918C-67E7EE49648D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Event Name="RhythmInputPlay" ID="{DD6BFF2A-F173-4236-AD03-B3AF95082669}">
+					<ChildrenList>
+						<Action Name="" ID="{4FDEC17E-093E-4FF8-9667-EF8A270F56F2}" ShortID="566169136">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="MainPlaylist" ID="{BE15BEA2-43BA-4579-82F9-52032F7AB7AF}" WorkUnitID="{5F190E9F-ECDC-41A6-918C-67E7EE49648D}"/>
+									<ObjectRef Name="RhythmInput" ID="{D416493F-C39F-45AF-92CE-4D777378B95B}" WorkUnitID="{C16F0B89-6FC2-43EE-A0F4-4824465FEC3E}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
