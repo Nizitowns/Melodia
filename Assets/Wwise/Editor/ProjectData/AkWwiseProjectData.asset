@@ -148,8 +148,8 @@ MonoBehaviour:
         guid: 2aff6bdd73f13642ad03b3af95082669
       Path: Events\Default Work Unit\RhythmInputPlay
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2
+      minDuration: 2
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:

@@ -73,7 +73,7 @@ public class CommandManager : MonoBehaviour
     /// </summary>
     public bool checkSimon(int button)
     {
-        return button == rhythmManager.getSimonPattern()[rhythmManager.getBeatsPlayed()];
+        return button == rhythmManager.getSimonPattern()[rhythmManager.getBeatsPlayed() - 1];
     }
 
     /// <summary>

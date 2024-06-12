@@ -72,8 +72,6 @@ public class CommandAudio : MonoBehaviour
                 break;
         }
 
-        print(name);
-
         AkSoundEngine.SetSwitch("RhythmInputSwitchGroup", name, gameObject);
         AkSoundEngine.PostEvent("RhythmInputPlay", gameObject);
     }

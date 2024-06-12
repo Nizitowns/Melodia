@@ -51,6 +51,18 @@ public class UIEffects : MonoBehaviour
     [Tooltip("The UnityEvent for button 4 flashing.")]
     private UnityEvent button4Event;
 
+    // Instances
+    private FeedbackBoard feedbackBoard;
+
+    #endregion
+
+    #region Initialization
+
+    private void Start()
+    {
+        feedbackBoard = FeedbackBoard.Instance;
+    }
+
     #endregion
 
     #region Effects
@@ -77,6 +89,12 @@ public class UIEffects : MonoBehaviour
                 button4Event?.Invoke();
                 break;
         }
+    }
+
+    public void giveFeedback(string feedback)
+    {
+        feedbackBoard.setText(feedback);
+        feedbackBoard.show();
     }
 
     #endregion

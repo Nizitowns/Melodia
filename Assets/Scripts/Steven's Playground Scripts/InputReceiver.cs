@@ -159,8 +159,6 @@ public class InputReceiver : MonoBehaviour
         }
 
         commandAudio.playSound(button);
-
-        rhythmManager.useBeat();
     }
 
     /// <summary>
@@ -170,31 +168,36 @@ public class InputReceiver : MonoBehaviour
     {
         if (!beatUsed)
         {
-            if (rhythmManager.GetCurrentBeatProgress() < perfectMargin)
-                print("Perfect");
-            else if (rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin)
-                print("Excellent");
-            else if (rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin + goodMargin)
-                print("Good");
+            if (rhythmManager.GetCurrentBeatProgress() < perfectMargin || 
+                1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin)
+                uiEffects.giveFeedback("Perfect");
+            else if (rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin || 
+                1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin)
+                uiEffects.giveFeedback("Excellent");
+            else if (rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin + goodMargin || 
+                1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin + goodMargin)
+                uiEffects.giveFeedback("Good");
             else
             {
-                print("Miss (Late)");
                 missedNote(rhythmManager.getGameState());
+                rhythmManager.useBeat();
                 return false;
             }
+
+            rhythmManager.useBeat();
         }
         else
         {
             if (1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin)
-                print("Perfect");
+                uiEffects.giveFeedback("Perfect");
             else if (1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin)
-                print("Excellent");
+                uiEffects.giveFeedback("Excellent");
             else if (1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin + excellentMargin + goodMargin)
-                print("Good");
+                uiEffects.giveFeedback("Good");
             else
             {
-                print("Miss (Early)");
                 missedNote(rhythmManager.getGameState());
+                rhythmManager.useNextBeat();
                 return false;
             }
 
@@ -210,12 +213,12 @@ public class InputReceiver : MonoBehaviour
     {
         if (gameState == State.SIMONPLAY)
         {
-            print("Wrong note!");
+            uiEffects.giveFeedback("Miss");
             rhythmManager.setGameState(State.SIMONTEACH);
         }
         else if (gameState == State.FREEPLAY)
         {
-            print("Wrong note!");
+            uiEffects.giveFeedback("Miss");
             rhythmManager.emptyCommandString();
             movementController.moveBackward();
         }

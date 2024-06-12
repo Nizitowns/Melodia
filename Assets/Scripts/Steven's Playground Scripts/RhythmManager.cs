@@ -56,7 +56,7 @@ public class RhythmManager : MonoBehaviour
     // Possible gamestates
     public enum State { SIMONTEACH, SIMONPLAY, FREEPLAY };
     // Current gamestate
-    private State gameState = State.SIMONTEACH;
+    private State gameState = State.FREEPLAY;
     // List of keys for the current Simon Says pattern
     private List<int> pattern = new List<int>();
     // List of keys for the current command string
@@ -65,6 +65,8 @@ public class RhythmManager : MonoBehaviour
     private int patternLength = 4;
     // Number of beats played toward a command
     private int beatsPlayed = 0;
+    // Flag for whether the player played a note on the last beat
+    private bool lastBeatUsed = false;
     // Flag for whether the player has played a note on this beat
     private bool beatUsed = false;
     // Flag for whether the next beat has been used (by a slightly early note)
@@ -143,6 +145,7 @@ public class RhythmManager : MonoBehaviour
     /// <returns>Float value representing the progress of the current beat.</returns>
     public float GetCurrentBeatProgress()
     {
+        print(1 - (timer / beatInterval));
         return timer / beatInterval;
     }
 
@@ -151,10 +154,18 @@ public class RhythmManager : MonoBehaviour
     /// </summary>
     private void freeBeat()
     {
+        if (!beatUsed && !nextBeatUsed)
+            lastBeatUsed = false;
+        else
+            lastBeatUsed = true;
+
         if (!nextBeatUsed)
             beatUsed = false;
         else
+        {
+            beatUsed = true;
             nextBeatUsed = false;
+        } 
     }
 
     /// <summary>
@@ -171,11 +182,20 @@ public class RhythmManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Checks if the player dropped a command by missing a beat.
+    /// Checks if the player dropped a command by missing a beat (during Simon Says).
+    /// </summary>
+    private void checkDroppedSimon()
+    {
+        if (beatsPlayed > 0 && !lastBeatUsed)
+            inputReceiver.missedNote(gameState);
+    }
+
+    /// <summary>
+    /// Checks if the player dropped a command by missing a beat (during Freeplay).
     /// </summary>
     private void checkDroppedCommand()
     {
-        if (pattern.Count > 0 && !beatUsed)
+        if (commandString.Count > 0 && !lastBeatUsed)
             inputReceiver.missedNote(gameState);
     }
 
@@ -195,6 +215,7 @@ public class RhythmManager : MonoBehaviour
     private void configureBeat()
     {
         OnBeat -= chooseKey;
+        OnBeat -= checkDroppedSimon;
         OnBeat -= checkDroppedCommand;
         OnBeat -= incrementStaticBeats;
         switch (gameState)
@@ -203,6 +224,7 @@ public class RhythmManager : MonoBehaviour
                 OnBeat += chooseKey;
                 break;
             case State.SIMONPLAY:
+                OnBeat += checkDroppedSimon;
                 break;
             case State.FREEPLAY:
                 OnBeat += checkDroppedCommand;
@@ -228,6 +250,7 @@ public class RhythmManager : MonoBehaviour
     /// </summary>
     public void setGameState(State state)
     {
+        beatsPlayed = 0;
         gameState = state;
     }
 
@@ -253,6 +276,7 @@ public class RhythmManager : MonoBehaviour
     /// </summary>
     public void useNextBeat()
     {
+        beatsPlayed++;
         nextBeatUsed = true;
     }
 
@@ -345,6 +369,7 @@ public class RhythmManager : MonoBehaviour
     {
         OnBeat -= freeBeat;
         OnBeat -= chooseKey;
+        OnBeat -= checkDroppedSimon;
         OnBeat -= checkDroppedCommand;
         OnBeat -= incrementStaticBeats;
     }
