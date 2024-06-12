@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{7DDF2BFC-0CE8-4E14-9600-0825CE6B03B5}" SchemaVersion="119">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{7DDF2BFC-0CE8-4E14-9600-0825CE6B03B5}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{7DDF2BFC-0CE8-4E14-9600-0825CE6B03B5}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="RhythmInputSwitchGroup" ID="{13B10607-3573-436D-835A-767DB763CA9E}">
+					<ChildrenList>
+						<Switch Name="Dore" ID="{C2090DE0-9E7F-48BC-BD44-F6D061673DF6}"/>
+						<Switch Name="La" ID="{6F4B5BD9-50F7-4BF6-A891-A1BDFFF43AC3}"/>
+						<Switch Name="Mire" ID="{07E31006-F317-460E-A9D6-AA3C62DB0976}"/>
+						<Switch Name="Do" ID="{EE304E77-EE44-4D55-9F97-78245E5D63C6}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>
