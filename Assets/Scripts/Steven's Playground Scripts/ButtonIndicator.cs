@@ -11,6 +11,7 @@ public class ButtonIndicator : MonoBehaviour
     [Tooltip("How long the button flash lasts.")]
     private float flashTime = 0.25f;
 
+
     // Variable to track the current alpha
     private float alpha = 0f;
     // Timer to track the flash

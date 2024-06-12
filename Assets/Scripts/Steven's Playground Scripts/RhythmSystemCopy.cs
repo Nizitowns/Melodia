@@ -90,7 +90,7 @@ public class RhythmSystemCopy : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The number of beats without progress before the tribe starts drifting backward.")]
-    private int staticBeatLimit = 6;
+    private int staticBeatLimit = 8;
 
     [SerializeField]
     [Tooltip("The Input Manager.")]

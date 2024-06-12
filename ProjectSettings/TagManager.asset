@@ -38,6 +38,36 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background 1
+    uniqueID: 4133356021
+    locked: 0
+  - name: Background 2
+    uniqueID: 344372681
+    locked: 0
+  - name: Background 3
+    uniqueID: 2022026845
+    locked: 0
+  - name: Background 4
+    uniqueID: 429159439
+    locked: 0
+  - name: Background 5
+    uniqueID: 2027760607
+    locked: 0
+  - name: Background 6
+    uniqueID: 3956608597
+    locked: 0
+  - name: Background 7
+    uniqueID: 1982019373
+    locked: 0
+  - name: Background 8
+    uniqueID: 64394699
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Border
+    uniqueID: 1824014347
+    locked: 0
+  - name: HUD
+    uniqueID: 4037042435
     locked: 0
