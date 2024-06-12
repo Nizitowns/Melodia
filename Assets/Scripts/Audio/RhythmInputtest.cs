@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class RhythmInputtest : MonoBehaviour
 {
-    [SerializeField]
-    private AK.Wwise.Event musicEvent;
+    //[SerializeField]
+   // private AK.Wwise.Event musicEvent;
 
     // Start is called before the first frame update
     void Start()
     {
         AkSoundEngine.SetSwitch("RhythmInputSwitchGroup", "Mire", gameObject);
-        musicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
+        //musicEvent.Post(gameObject, (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction);
 
 
-        //StartCoroutine(LaunchSFXTest());
+        StartCoroutine(LaunchSFXTest());
 
 
     }

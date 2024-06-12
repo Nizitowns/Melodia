@@ -51,6 +51,7 @@ public class RhythmManager : MonoBehaviour
     private UIEffects uiEffects;
     private CommandManager commandManager;
     private MovementController movementController;
+    private CommandAudio commandAudio;
 
     // Possible gamestates
     public enum State { SIMONTEACH, SIMONPLAY, FREEPLAY };
@@ -90,6 +91,7 @@ public class RhythmManager : MonoBehaviour
         uiEffects = UIEffects.Instance;
         commandManager = CommandManager.Instance;
         movementController = MovementController.Instance;
+        commandAudio = CommandAudio.Instance;
 
         InitializeRhythm();
         InitializeSimon();
@@ -163,6 +165,7 @@ public class RhythmManager : MonoBehaviour
         if (!beatUsed)
         {
             uiEffects.flashButton(pattern[beatsPlayed]);
+            commandAudio.playSound(pattern[beatsPlayed]);
             beatsPlayed++;
         }
     }

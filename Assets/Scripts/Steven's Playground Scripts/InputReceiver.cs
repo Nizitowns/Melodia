@@ -61,6 +61,7 @@ public class InputReceiver : MonoBehaviour
     private RhythmManager rhythmManager;
     private CommandManager commandManager;
     private MovementController movementController;
+    private CommandAudio commandAudio;
 
     // Individual input action maps
     private InputActionMap gameplayActionMap;
@@ -84,6 +85,7 @@ public class InputReceiver : MonoBehaviour
         rhythmManager = RhythmManager.Instance;
         commandManager = CommandManager.Instance;
         movementController = MovementController.Instance;
+        commandAudio = CommandAudio.Instance;
 
         InitializeInputActions();
         EnableGameplayInput();
@@ -155,6 +157,8 @@ public class InputReceiver : MonoBehaviour
                 commandManager.checkForCommand(button);
             }
         }
+
+        commandAudio.playSound(button);
 
         rhythmManager.useBeat();
     }
