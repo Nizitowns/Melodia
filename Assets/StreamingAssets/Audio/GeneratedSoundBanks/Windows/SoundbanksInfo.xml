@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="150">
 	<RootPaths>
-		<ProjectRoot>../../../../../../../WwiseProjects/Rapapan_WwiseProject</ProjectRoot>
-		<SourceFilesRoot>../../../../../../../WwiseProjects/Rapapan_WwiseProject/.cache/Windows</SourceFilesRoot>
+		<ProjectRoot>../../../../../Rapapan_WwiseProject</ProjectRoot>
+		<SourceFilesRoot>../../../../../Rapapan_WwiseProject/.cache/Windows</SourceFilesRoot>
 		<SoundBanksRoot>.</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>../../../../../../../WwiseProjects/Rapapan_WwiseProject/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>../../../../../Rapapan_WwiseProject/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
@@ -21,18 +21,44 @@
 			<Busses>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
+			<SwitchGroups>
+				<SwitchGroup Id="762809784" Name="RhythmInputSwitchGroup">
+					<Switches>
+						<Switch Id="1702304872" Name="La"/>
+						<Switch Id="1836525774" Name="Do"/>
+						<Switch Id="2196622413" Name="Dore"/>
+						<Switch Id="3079300808" Name="Mire"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{1FA196E4-6F8C-FCC2-75F4-E462C6513379}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2EA6F55A-7FEB-2DBF-5A20-476FE798BE4F}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
+				<File Id="2085650" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mire.wav</ShortName>
+					<CachePath>SFX/Mire_1839A0EA.wem</CachePath>
+				</File>
+				<File Id="233236633" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>La.wav</ShortName>
+					<CachePath>SFX/La_1839A0EA.wem</CachePath>
+				</File>
 				<File Id="349763783" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Main music.wav</ShortName>
 					<CachePath>SFX/Main music_D95B34B4.wem</CachePath>
 				</File>
+				<File Id="739340601" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Dore.wav</ShortName>
+					<CachePath>SFX/Dore_1839A0EA.wem</CachePath>
+				</File>
 				<File Id="786987112" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>MainMusic_Click.wav</ShortName>
 					<CachePath>SFX/MainMusic_Click_D95B34B4.wem</CachePath>
+				</File>
+				<File Id="1017258917" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Do.wav</ShortName>
+					<CachePath>SFX/Do_1839A0EA.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -42,8 +68,46 @@
 						<MediaRef Id="786987112"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="36542545" Name="RhythmInputPlay" DurationType="OneShot" DurationMin="2" DurationMax="2">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="762809784" Id="3079300808"/>
+							<MediaRefs>
+								<MediaRef Id="2085650"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="762809784" Id="1836525774" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="1017258917"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="762809784" Id="1702304872"/>
+							<MediaRefs>
+								<MediaRef Id="233236633"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="762809784" Id="2196622413"/>
+							<MediaRefs>
+								<MediaRef Id="739340601"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 			</Events>
+			<SwitchGroups>
+				<SwitchGroup Id="762809784" Name="RhythmInputSwitchGroup">
+					<Switches>
+						<Switch Id="1702304872" Name="La"/>
+						<Switch Id="1836525774" Name="Do"/>
+						<Switch Id="2196622413" Name="Dore"/>
+						<Switch Id="3079300808" Name="Mire"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{55F8AD25-D4EA-5066-5A62-F414668AF6A5}</FileHash>
+	<FileHash>{7F22F2DF-B896-9C96-21BF-D98B985B76A2}</FileHash>
 </SoundBanksInfo>

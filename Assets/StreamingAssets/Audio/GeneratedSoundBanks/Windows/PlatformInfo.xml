@@ -2,11 +2,11 @@
 <PlatformInfo>
 	<Platform Name="Windows" BasePlatform="Windows" Generator="2023.1.4.8496"/>
 	<RootPaths>
-		<ProjectRoot>../../../../../../../WwiseProjects/Rapapan_WwiseProject</ProjectRoot>
-		<SourceFilesRoot>../../../../../../../WwiseProjects/Rapapan_WwiseProject/.cache/Windows</SourceFilesRoot>
+		<ProjectRoot>../../../../../Rapapan_WwiseProject</ProjectRoot>
+		<SourceFilesRoot>../../../../../Rapapan_WwiseProject/.cache/Windows</SourceFilesRoot>
 		<SoundBanksRoot>.</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>../../../../../../../WwiseProjects/Rapapan_WwiseProject/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>../../../../../Rapapan_WwiseProject/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DefaultAlign>16</DefaultAlign>
 	<Settings>
@@ -28,5 +28,5 @@
 		<PrintObjectGuid>false</PrintObjectGuid>
 		<PrintObjectPath>false</PrintObjectPath>
 	</Settings>
-	<FileHash>{EB6091B4-01B8-E28F-8F91-190C66DCD3C0}</FileHash>
+	<FileHash>{6B99630C-DC0D-871B-89DC-CC2480029F1F}</FileHash>
 </PlatformInfo>

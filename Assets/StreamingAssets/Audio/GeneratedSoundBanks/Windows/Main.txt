@@ -1,7 +1,21 @@
 Event	ID	Name			Wwise Object Path	Notes
-	4005935157	MainMusicStart			\Default Work Unit\MainMusicStart	
+	36542545	RhythmInputPlay			\Default Work Unit\RhythmInputPlay	
+	4005935157	MainMusicStart			\Default Work Unit\Music\MainMusicStart	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	762809784	RhythmInputSwitchGroup			\Default Work Unit\RhythmInputSwitchGroup	
+
+Switch	ID	Name	Switch Group			Notes
+	1702304872	La	RhythmInputSwitchGroup			
+	1836525774	Do	RhythmInputSwitchGroup			
+	2196622413	Dore	RhythmInputSwitchGroup			
+	3079300808	Mire	RhythmInputSwitchGroup			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	349763783	Main music	C:\Users\noah_\Documents\WwiseProjects\Rapapan_WwiseProject\.cache\Windows\SFX\Main music_D95B34B4.wem		\Interactive Music Hierarchy\Default Work Unit\MainPlaylist\MainMusic\Main music		10421161
-	786987112	MainMusic_Click	C:\Users\noah_\Documents\WwiseProjects\Rapapan_WwiseProject\.cache\Windows\SFX\MainMusic_Click_D95B34B4.wem		\Interactive Music Hierarchy\Default Work Unit\MainPlaylist\MainMusic\MainMusic_Click		332731
+	2085650	Mire	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\Mire_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\Mire		57795
+	233236633	La	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\La_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\La		53054
+	349763783	Main music	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\Main music_D95B34B4.wem		\Interactive Music Hierarchy\Default Work Unit\MainPlaylist\MainMusic\Main music		10421161
+	739340601	Dore	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\Dore_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\Dore		66446
+	786987112	MainMusic_Click	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\MainMusic_Click_D95B34B4.wem		\Interactive Music Hierarchy\Default Work Unit\MainPlaylist\MainMusic\MainMusic_Click		332731
+	1017258917	Do	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\Do_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\Do		65363
 
