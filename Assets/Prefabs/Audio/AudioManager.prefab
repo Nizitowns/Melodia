@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389b3e61a8e30e54cba3d68984236a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
