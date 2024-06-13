@@ -251,7 +251,6 @@ public class HUD_VireshMod : MonoBehaviour
 
     public void DisplayStatus()
     {
-        UpdateMessage("Good");
         GameObject newStatus = Instantiate(status);
         newStatus.transform.SetParent(ScoreBoard.transform);
         Reposition(newStatus, Corner.TopRight);
