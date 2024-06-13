@@ -31,12 +31,16 @@ public class MovementController : MonoBehaviour
     #region Fields
 
     [SerializeField]
+    [Tooltip("A reference to the game object containing the parallax backgrounds as children.")]
+    private GameObject parallaxContainer;
+
+    [SerializeField]
     [Tooltip("The amount the tribe moves forward.")]
     private float moveDistance = 1.0f;
 
     [SerializeField]
-    [Tooltip("The amount the tribe moves forward in fever mode.")]
-    private float feverMoveDistance = 2.0f;
+    [Tooltip("The multiplier received to movement when in fever mode.")]
+    private float feverMultiplier = 2.0f;
 
     [SerializeField]
     [Tooltip("The amount the tribe moves backward when failing.")]
@@ -51,6 +55,22 @@ public class MovementController : MonoBehaviour
 
     #endregion
 
+    #region Visuals
+
+    /// <summary>
+    /// Moves the parallax backgrounds a certain distance
+    /// </summary>
+    private void moveBackground(float distance, bool left)
+    {
+        foreach (Parallax p in parallaxContainer.GetComponentsInChildren<Parallax>())
+        {
+            p.setMoveLeft(left);
+            p.addDistance(distance);
+        }
+    }
+
+    #endregion
+
     #region Tribe Movement
 
     /// <summary>
@@ -62,11 +82,23 @@ public class MovementController : MonoBehaviour
     }
 
     /// <summary>
+    /// Stop drifting the tribe.
+    /// </summary>
+    public void stopDrift()
+    {
+        drifting = false;
+    }
+
+    /// <summary>
     /// If the tribe is drifting, move them backward.
     /// </summary>
     public void drift()
     {
-        
+        if (drifting)
+        {
+            moveBackground(driftDistance, false);
+        }
+
     }
 
     /// <summary>
@@ -74,7 +106,7 @@ public class MovementController : MonoBehaviour
     /// </summary>
     public void moveForward()
     {
-        
+        moveBackground(moveDistance, true);
     }
 
     /// <summary>
@@ -82,7 +114,7 @@ public class MovementController : MonoBehaviour
     /// </summary>
     public void moveBackward()
     {
-        
+        //moveBackground(regressDistance, false);
     }
 
     #endregion

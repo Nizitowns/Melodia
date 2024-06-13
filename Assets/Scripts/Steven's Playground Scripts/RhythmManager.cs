@@ -44,7 +44,7 @@ public class RhythmManager : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The number of beats without progress before the tribe starts drifting backward.")]
-    private int staticBeatLimit = 8;
+    private int staticBeatLimit = 10;
 
     // Instances
     private InputReceiver inputReceiver;
@@ -100,7 +100,6 @@ public class RhythmManager : MonoBehaviour
         InitializeRhythm();
         InitializeSimon();
         InitializeBeat();
-        uiEffects.flickerBorder();
 
         OnBeat += freeBeat;
     }
@@ -139,7 +138,6 @@ public class RhythmManager : MonoBehaviour
     /// <returns>Float value representing the progress of the current beat.</returns>
     public float GetCurrentBeatProgress()
     {
-        print(1 - (timer / beatInterval));
         return timer / beatInterval;
     }
 
@@ -212,6 +210,7 @@ public class RhythmManager : MonoBehaviour
         staticBeats++;
         if (staticBeats >= staticBeatLimit)
             movementController.startDrift();
+        movementController.drift();
     }
 
     /// <summary>
@@ -323,6 +322,14 @@ public class RhythmManager : MonoBehaviour
     public void emptyCommandString()
     {
         commandString = new List<int>();
+    }
+
+    /// <summary>
+    /// Resets the static beat counter.
+    /// </summary>
+    public void resetStaticBeats()
+    {
+        staticBeats = 0;
     }
 
     /// <summary>

@@ -160,6 +160,8 @@ public class CommandManager : MonoBehaviour
     /// </summary>
     private void move()
     {
+        rhythmManager.resetStaticBeats();
+        movementController.stopDrift();
         movementController.moveForward();
     }
 

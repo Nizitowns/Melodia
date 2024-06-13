@@ -46,11 +46,11 @@ public class InputReceiver : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Margin of error for a Perfect note, as a percentage of the beat interval.")]
-    private float perfectMargin = 0.2f;
+    private float perfectMargin = 0.1f;
 
     [SerializeField]
     [Tooltip("Margin of error for an Excellent note, as a percentage of the beat interval.")]
-    private float excellentMargin = 0.2f;
+    private float excellentMargin = 0.15f;
 
     [SerializeField]
     [Tooltip("Margin of error for a Good note, as a percentage of the beat interval.")]
@@ -69,6 +69,12 @@ public class InputReceiver : MonoBehaviour
     private InputAction button2;
     private InputAction button3;
     private InputAction button4;
+
+    // Disabled button flags
+    private bool button1Disabled = false;
+    private bool button2Disabled = false;
+    private bool button3Disabled = false;
+    private bool button4Disabled = false;
 
     #endregion
 
@@ -125,15 +131,59 @@ public class InputReceiver : MonoBehaviour
         gameplayActionMap.Disable();
     }
 
+    /// <summary>
+    ///  Disables a particular button
+    /// </summary>
+    public void disableButton(int button)
+    {
+        switch (button)
+        {
+            case 1:
+                button1Disabled = true;
+                break;
+            case 2:
+                button2Disabled = true;
+                break;
+            case 3:
+                button3Disabled = true;
+                break;
+            case 4:
+                button4Disabled = true;
+                break;
+        }
+    }
+
+    /// <summary>
+    ///  Enables a particular button
+    /// </summary>
+    public void enableButton(int button)
+    {
+        switch (button)
+        {
+            case 1:
+                button1Disabled = false;
+                break;
+            case 2:
+                button2Disabled = false;
+                break;
+            case 3:
+                button3Disabled = false;
+                break;
+            case 4:
+                button4Disabled = false;
+                break;
+        }
+    }
+
     #endregion
 
     #region Input Handlers
 
     // Helper functions to map button presses to correct parameter pass to pressButton.
-    private void doButton1(InputAction.CallbackContext context) { pressButton(1, rhythmManager.getGameState()); }
-    private void doButton2(InputAction.CallbackContext context) { pressButton(2, rhythmManager.getGameState()); }
-    private void doButton3(InputAction.CallbackContext context) { pressButton(3, rhythmManager.getGameState()); }
-    private void doButton4(InputAction.CallbackContext context) { pressButton(4, rhythmManager.getGameState()); }
+    private void doButton1(InputAction.CallbackContext context) { if (!button1Disabled) pressButton(1, rhythmManager.getGameState()); }
+    private void doButton2(InputAction.CallbackContext context) { if (!button2Disabled) pressButton(2, rhythmManager.getGameState()); }
+    private void doButton3(InputAction.CallbackContext context) { if (!button3Disabled) pressButton(3, rhythmManager.getGameState()); }
+    private void doButton4(InputAction.CallbackContext context) { if (!button4Disabled) pressButton(4, rhythmManager.getGameState()); }
 
     /// <summary>
     /// Receives a player input.
@@ -142,19 +192,22 @@ public class InputReceiver : MonoBehaviour
     {
         uiEffects.flashButton(button);
 
-        // Check the note's timing
-        if (checkTiming(rhythmManager.isBeatUsed()))
+        if (rhythmManager)
         {
-            // If in Simon Says mode, check the input is the correct button
-            if (gameState == State.SIMONPLAY)
+            // Check the note's timing
+            if (checkTiming(rhythmManager.isBeatUsed()))
             {
-                if (!commandManager.checkSimon(button))
-                    missedNote(gameState);
-            }
-            // If in freeplay mode, check if the input goes toward a command
-            else if (gameState == State.FREEPLAY)
-            {
-                commandManager.checkForCommand(button);
+                // If in Simon Says mode, check the input is the correct button
+                if (gameState == State.SIMONPLAY)
+                {
+                    if (!commandManager.checkSimon(button))
+                        missedNote(gameState);
+                }
+                // If in freeplay mode, check if the input goes toward a command
+                else if (gameState == State.FREEPLAY)
+                {
+                    commandManager.checkForCommand(button);
+                }
             }
         }
 
