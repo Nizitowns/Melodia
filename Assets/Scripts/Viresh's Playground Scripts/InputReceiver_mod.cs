@@ -61,7 +61,7 @@ public class InputReceiver_mod : MonoBehaviour
     private RhythmManager rhythmManager;
     private CommandManager commandManager;
     private MovementController movementController;
-    private CommandAudio commandAudio;
+    private SFXManager commandAudio;
 
     // Individual input action maps
     private InputActionMap gameplayActionMap;
@@ -85,7 +85,7 @@ public class InputReceiver_mod : MonoBehaviour
         rhythmManager = RhythmManager.Instance;
         commandManager = CommandManager.Instance;
         movementController = MovementController.Instance;
-        commandAudio = CommandAudio.Instance;
+        commandAudio = SFXManager.Instance;
 
         InitializeInputActions();
         EnableGameplayInput();
@@ -158,7 +158,7 @@ public class InputReceiver_mod : MonoBehaviour
             }
         }
 
-        commandAudio.playSound(button);
+        commandAudio.playButtonSound(button);
     }
 
     /// <summary>

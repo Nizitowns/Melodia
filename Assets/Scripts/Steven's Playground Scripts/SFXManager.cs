@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CommandAudio : MonoBehaviour
+public class SFXManager : MonoBehaviour
 {
     #region Singleton
 
     // Singleton instance
-    public static CommandAudio Instance { get; private set; }
+    public static SFXManager Instance { get; private set; }
 
     /// <summary>
     /// Called when the script instance is being loaded.
@@ -53,7 +53,7 @@ public class CommandAudio : MonoBehaviour
     /// <summary>
     /// Plays a sound given the button pressed.
     /// </summary>
-    public void playSound(int button)
+    public void playButtonSound(int button)
     {
         string name = "";
         switch (button)

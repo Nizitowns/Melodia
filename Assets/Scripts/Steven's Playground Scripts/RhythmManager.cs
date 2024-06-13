@@ -51,7 +51,8 @@ public class RhythmManager : MonoBehaviour
     private UIEffects uiEffects;
     private CommandManager commandManager;
     private MovementController movementController;
-    private CommandAudio commandAudio;
+    private SFXManager sfx;
+    private MusicManager musicManager;
 
     // Possible gamestates
     public enum State { SIMONTEACH, SIMONPLAY, FREEPLAY };
@@ -93,11 +94,12 @@ public class RhythmManager : MonoBehaviour
         uiEffects = UIEffects.Instance;
         commandManager = CommandManager.Instance;
         movementController = MovementController.Instance;
-        commandAudio = CommandAudio.Instance;
+        sfx = SFXManager.Instance;
+        musicManager = MusicManager.Instance;
 
         InitializeRhythm();
         InitializeSimon();
-        StartCoroutine(BeatRoutine());
+        InitializeBeat();
         uiEffects.flickerBorder();
 
         OnBeat += freeBeat;
@@ -119,25 +121,17 @@ public class RhythmManager : MonoBehaviour
         beatInterval = 60f / bpm;
     }
 
+    /// <summary>
+    /// Initializes the beat system, syncing it with the music playback (and starting the music, consequentially).
+    /// </summary>
+    private void InitializeBeat()
+    {
+        musicManager.syncBeat();
+    }
+
     #endregion
 
     #region Beat Management
-
-    /// <summary>
-    /// Coroutine that generates beats at regular intervals and triggers the OnBeat event.
-    /// </summary>
-    /// <returns>IEnumerator for the coroutine.</returns>
-    private IEnumerator BeatRoutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(beatInterval);
-            timer = 0f;
-            OnBeat?.Invoke();
-
-            uiEffects.flickerBorder();
-        }
-    }
 
     /// <summary>
     /// Gets the progress of the current beat as a value between 0 and 1.
@@ -147,6 +141,17 @@ public class RhythmManager : MonoBehaviour
     {
         print(1 - (timer / beatInterval));
         return timer / beatInterval;
+    }
+
+    /// <summary>
+    /// Invokes the beat functions.
+    /// </summary>
+    public void beat()
+    {
+        timer = 0f;
+        OnBeat?.Invoke();
+
+        uiEffects.flickerBorder();
     }
 
     /// <summary>
@@ -176,7 +181,7 @@ public class RhythmManager : MonoBehaviour
         if (!beatUsed)
         {
             uiEffects.flashButton(pattern[beatsPlayed]);
-            commandAudio.playSound(pattern[beatsPlayed]);
+            sfx.playButtonSound(pattern[beatsPlayed]);
             beatsPlayed++;
         }
     }
