@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using static RhythmManager;
+using static LevelManager;
 
 public class InputReceiver : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class InputReceiver : MonoBehaviour
     private CommandManager commandManager;
     private MovementController movementController;
     private SFXManager sfx;
+    private LevelManager levelManager;
 
     // Individual input action maps
     private InputActionMap gameplayActionMap;
@@ -92,6 +94,7 @@ public class InputReceiver : MonoBehaviour
         commandManager = CommandManager.Instance;
         movementController = MovementController.Instance;
         sfx = SFXManager.Instance;
+        levelManager = LevelManager.Instance;
 
         InitializeInputActions();
         EnableGameplayInput();
@@ -180,31 +183,31 @@ public class InputReceiver : MonoBehaviour
     #region Input Handlers
 
     // Helper functions to map button presses to correct parameter pass to pressButton.
-    private void doButton1(InputAction.CallbackContext context) { if (!button1Disabled) pressButton(1, rhythmManager.getGameState()); }
-    private void doButton2(InputAction.CallbackContext context) { if (!button2Disabled) pressButton(2, rhythmManager.getGameState()); }
-    private void doButton3(InputAction.CallbackContext context) { if (!button3Disabled) pressButton(3, rhythmManager.getGameState()); }
-    private void doButton4(InputAction.CallbackContext context) { if (!button4Disabled) pressButton(4, rhythmManager.getGameState()); }
+    private void doButton1(InputAction.CallbackContext context) { if (!button1Disabled) pressButton(1); }
+    private void doButton2(InputAction.CallbackContext context) { if (!button2Disabled) pressButton(2); }
+    private void doButton3(InputAction.CallbackContext context) { if (!button3Disabled) pressButton(3); }
+    private void doButton4(InputAction.CallbackContext context) { if (!button4Disabled) pressButton(4); }
 
     /// <summary>
     /// Receives a player input.
     /// </summary>
-    public void pressButton(int button, State gameState)
+    public void pressButton(int button)
     {
         uiEffects.flashButton(button);
 
-        if (rhythmManager)
+        if (rhythmManager && levelManager.getCurrentEvent().type != LevelEventType.CUTSCENE)
         {
             // Check the note's timing
             if (checkTiming(rhythmManager.isBeatUsed()))
             {
                 // If in Simon Says mode, check the input is the correct button
-                if (gameState == State.SIMONPLAY)
+                if (levelManager.getCurrentEvent().type == LevelEventType.SIMON_SAYS || levelManager.getCurrentEvent().type == LevelEventType.NEW_TRIBE)
                 {
                     if (!commandManager.checkSimon(button))
-                        missedNote(gameState);
+                        missedNote();
                 }
                 // If in freeplay mode, check if the input goes toward a command
-                else if (gameState == State.FREEPLAY)
+                else if (levelManager.getCurrentEvent().type == LevelEventType.FREE_AREA)
                 {
                     commandManager.checkForCommand(button);
                 }
@@ -232,7 +235,7 @@ public class InputReceiver : MonoBehaviour
                 uiEffects.giveFeedback("Good");
             else
             {
-                missedNote(rhythmManager.getGameState());
+                missedNote();
                 rhythmManager.useBeat();
                 return false;
             }
@@ -249,7 +252,7 @@ public class InputReceiver : MonoBehaviour
                 uiEffects.giveFeedback("Good");
             else
             {
-                missedNote(rhythmManager.getGameState());
+                missedNote();
                 rhythmManager.useNextBeat();
                 return false;
             }
@@ -262,14 +265,14 @@ public class InputReceiver : MonoBehaviour
     /// <summary>
     /// Resets commands, combos, and fever mode on missed notes.
     /// </summary>
-    public void missedNote(State gameState)
+    public void missedNote()
     {
-        if (gameState == State.SIMONPLAY)
+        if (levelManager.getCurrentEvent().type == LevelEventType.SIMON_SAYS)
         {
             uiEffects.giveFeedback("Miss");
             rhythmManager.setGameState(State.SIMONTEACH);
         }
-        else if (gameState == State.FREEPLAY)
+        else if (levelManager.getCurrentEvent().type == LevelEventType.FREE_AREA)
         {
             uiEffects.giveFeedback("Miss");
             rhythmManager.emptyCommandString();

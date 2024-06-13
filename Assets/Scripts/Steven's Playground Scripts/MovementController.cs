@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static LevelManager;
 
 public class MovementController : MonoBehaviour
 {
@@ -50,8 +51,23 @@ public class MovementController : MonoBehaviour
     [Tooltip("The amount the tribe moves backward (each beat) after a lack of progress.")]
     private float driftDistance = 0.1f;
 
+    // Instances
+    LevelManager levelManager;
+
     // Flag for whether the tribe is drifting
     private bool drifting = false;
+    // Keeping track of the tribe's progress
+    private float progress = 0f;
+
+    #endregion
+
+    #region Initialization
+
+    private void Start()
+    {
+        // Instances
+        levelManager = LevelManager.Instance;
+    }
 
     #endregion
 
@@ -97,6 +113,7 @@ public class MovementController : MonoBehaviour
         if (drifting)
         {
             moveBackground(driftDistance, false);
+            progress -= driftDistance;
         }
 
     }
@@ -107,6 +124,12 @@ public class MovementController : MonoBehaviour
     public void moveForward()
     {
         moveBackground(moveDistance, true);
+        progress += moveDistance;
+        if (levelManager.getCurrentEvent().type == LevelEventType.FREE_AREA && progress >= levelManager.getCurrentEvent().areaLength)
+        {
+            levelManager.finishEvent();
+        }
+            
     }
 
     /// <summary>
@@ -114,7 +137,8 @@ public class MovementController : MonoBehaviour
     /// </summary>
     public void moveBackward()
     {
-        //moveBackground(regressDistance, false);
+        moveBackground(regressDistance, false);
+        progress -= regressDistance;
     }
 
     #endregion

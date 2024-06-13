@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/BossFight.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Level1.unity
+    guid: 04c381277f18dc24d8d89ecfc3fdef15
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: b424deba4ee788e42ac2304b26676a6e, type: 2}

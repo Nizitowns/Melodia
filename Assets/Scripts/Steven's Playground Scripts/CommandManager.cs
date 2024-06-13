@@ -117,7 +117,7 @@ public class CommandManager : MonoBehaviour
             }
             if (patternLength == commandString.Count)
             {
-                inputReceiver.missedNote(rhythmManager.getGameState());
+                inputReceiver.missedNote();
             }
         }
     }

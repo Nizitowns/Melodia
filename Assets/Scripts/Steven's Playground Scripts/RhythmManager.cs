@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static CommandManager;
 
 public class RhythmManager : MonoBehaviour
 {
@@ -53,11 +54,12 @@ public class RhythmManager : MonoBehaviour
     private MovementController movementController;
     private SFXManager sfx;
     private MusicManager musicManager;
+    private LevelManager levelManager;
 
     // Possible gamestates
-    public enum State { SIMONTEACH, SIMONPLAY, FREEPLAY };
+    public enum State { DEFAULT, SIMONTEACH, SIMONPLAY, FREEPLAY };
     // Current gamestate
-    private State gameState = State.FREEPLAY;
+    private State gameState = State.DEFAULT;
     // List of keys for the current Simon Says pattern
     private List<int> pattern = new List<int>();
     // List of keys for the current command string
@@ -96,6 +98,7 @@ public class RhythmManager : MonoBehaviour
         movementController = MovementController.Instance;
         sfx = SFXManager.Instance;
         musicManager = MusicManager.Instance;
+        levelManager = LevelManager.Instance;
 
         InitializeRhythm();
         InitializeSimon();
@@ -190,7 +193,7 @@ public class RhythmManager : MonoBehaviour
     private void checkDroppedSimon()
     {
         if (beatsPlayed > 0 && !lastBeatUsed)
-            inputReceiver.missedNote(gameState);
+            inputReceiver.missedNote();
     }
 
     /// <summary>
@@ -199,7 +202,7 @@ public class RhythmManager : MonoBehaviour
     private void checkDroppedCommand()
     {
         if (commandString.Count > 0 && !lastBeatUsed)
-            inputReceiver.missedNote(gameState);
+            inputReceiver.missedNote();
     }
 
     /// <summary>
@@ -234,12 +237,22 @@ public class RhythmManager : MonoBehaviour
                 OnBeat += checkDroppedCommand;
                 OnBeat += incrementStaticBeats;
                 break;
+            default:
+                break;
         }
     }
 
     #endregion
 
     #region Update
+
+    /// <summary>
+    /// Sets the simon says command.
+    /// </summary>
+    public void setSimonCommand(Command c)
+    {
+        pattern = c.keys;
+    }
 
     /// <summary>
     /// Returns the game state.
@@ -356,8 +369,9 @@ public class RhythmManager : MonoBehaviour
                 if (beatsPlayed >= patternLength)
                 {
                     beatsPlayed = 0;
-                    pattern = commandManager.chooseCommand();
-                    gameState = State.SIMONTEACH;
+                    if (levelManager.getCurrentEvent().doCommand)
+                        commandManager.doCommand(pattern);
+                    levelManager.finishEvent();
                 }
                 break;
             case State.FREEPLAY:

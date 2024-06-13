@@ -340,10 +340,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad4c47831f323f448e1275b664058b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1241008962}
   levelEvents:
   - name: Dore-Dore-Dore-Dore Tutorial
     type: 0
     areaLength: 0
+    screenText: 
+    doCommand: 0
     newTribeCommand:
       name: 
       actionName: 
@@ -353,6 +356,98 @@ MonoBehaviour:
       actionName: 
       keys: 
     cutscene: {fileID: 364111254}
+    onFinish:
+      m_PersistentCalls:
+        m_Calls: []
+    objectsToDestroy:
+    - {fileID: 437483813}
+  - name: Wake Simon Says
+    type: 1
+    areaLength: 0
+    screenText: 'Give it a go! Play Do-Re four times in succession to wake the character!
+      Remember: always follow the rhythm!'
+    doCommand: 0
+    newTribeCommand:
+      name: 
+      actionName: 
+      keys: 
+    simonCommand:
+      name: Dore Dore Dore Dore
+      actionName: wake
+      keys: 04000000040000000400000004000000
+    cutscene: {fileID: 0}
+    onFinish:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1198322339}
+          m_TargetAssemblyTypeName: MainCharacter, Assembly-CSharp
+          m_MethodName: wakeUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    objectsToDestroy: []
+  - name: Move Simon Says
+    type: 1
+    areaLength: 0
+    screenText: "Next: \u2192\u2192\u2192\u2191\\nDo-Re Do-Re Do-Re La\\nHit four
+      notes in one measure."
+    doCommand: 1
+    newTribeCommand:
+      name: 
+      actionName: 
+      keys: 
+    simonCommand:
+      name: Dore-Dore-Dore-La
+      actionName: move
+      keys: 04000000040000000400000002000000
+    cutscene: {fileID: 0}
+    onFinish:
+      m_PersistentCalls:
+        m_Calls: []
+    objectsToDestroy: []
+  - name: Free Area
+    type: 2
+    areaLength: 10
+    screenText: Keep it up! See how the blight is lifted by the power of music!\nKeep
+      it up!
+    doCommand: 0
+    newTribeCommand:
+      name: 
+      actionName: 
+      keys: 
+    simonCommand:
+      name: 
+      actionName: 
+      keys: 
+    cutscene: {fileID: 0}
+    onFinish:
+      m_PersistentCalls:
+        m_Calls: []
+    objectsToDestroy: []
+  - name: Finish
+    type: 4
+    areaLength: 0
+    screenText: Finished!
+    doCommand: 0
+    newTribeCommand:
+      name: 
+      actionName: 
+      keys: 
+    simonCommand:
+      name: 
+      actionName: 
+      keys: 
+    cutscene: {fileID: 0}
+    onFinish:
+      m_PersistentCalls:
+        m_Calls: []
+    objectsToDestroy: []
 --- !u!1 &248568697
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +689,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c3e1ba4bab839e4caca4856a9574a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  over: 0
+  rhythmManager: {fileID: 0}
+  movementController: {fileID: 0}
+  commandManager: {fileID: 0}
+  inputReceiver: {fileID: 0}
+  uiEffects: {fileID: 0}
+  sfxManager: {fileID: 0}
+  inputActions: {fileID: -944628639613478452, guid: 5adcedcd86988014db2722f9f77e5c91, type: 3}
+  background: {fileID: 437483813}
 --- !u!4 &364111256
 Transform:
   m_ObjectHideFlags: 0
@@ -1231,6 +1335,85 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 295270084199512958, guid: 71c4dc3502c502642af9917e3f8435a1, type: 3}
   m_PrefabInstance: {fileID: 2144105706}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &670375259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 670375260}
+  - component: {fileID: 670375262}
+  - component: {fileID: 670375261}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &670375260
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670375259}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1241008959}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 301.8191, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &670375261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670375259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &670375262
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670375259}
+  m_CullTransparentMesh: 1
 --- !u!1 &730487695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,6 +2410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1198322337}
   - component: {fileID: 1198322338}
+  - component: {fileID: 1198322339}
   m_Layer: 0
   m_Name: Main Character
   m_TagString: Untagged
@@ -2301,6 +2485,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1198322339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198322336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f9da97eb2aa3df4898cfdd03fa9fd7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1241008958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2334,6 +2530,7 @@ RectTransform:
   m_Children:
   - {fileID: 82683507}
   - {fileID: 1163596370}
+  - {fileID: 670375260}
   m_Father: {fileID: 1408936352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2913,7 +3110,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613799322}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e89c5accdcfca5d458f3528b88b99dfc, type: 3}
   m_Name: 
@@ -2959,7 +3156,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618304915}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d9ff49adcc278a4fbd48eeb3131ffd0, type: 3}
   m_Name: 

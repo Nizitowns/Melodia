@@ -56,6 +56,12 @@ public class Level1Tutorial : Cutscene
         {
             InputActionMap gameplayActionMap = inputActions.FindActionMap("Gameplay");
             gameplayActionMap.FindAction("Button 4").performed -= countInputs;
+            inputs++;
+            
+        }
+
+        if (inputs == 7)
+        {
             GetComponentInChildren<Canvas>().GetComponentInChildren<Text>().text = "";
             if (alpha > 0f)
             {
@@ -65,9 +71,10 @@ public class Level1Tutorial : Cutscene
             }
             else
                 inputs++;
+            
         }
 
-        if (inputs == 7)
+        if (inputs == 8)
         {
             over = true;
             inputReceiver.enableButton(1);
