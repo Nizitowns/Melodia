@@ -220,46 +220,84 @@ public class InputReceiver : MonoBehaviour
     /// <summary>
     /// Checks the played beat's timing. Returns false on missed notes.
     /// </summary>
-    private bool checkTiming(bool beatUsed)
+    public bool checkTiming(bool beatUsed, float progress = 0f)
     {
-        if (!beatUsed)
+        if (levelManager.getCurrentEvent().type != LevelEventType.CUTSCENE)
         {
-            if (rhythmManager.GetCurrentBeatProgress() < perfectMargin / 2.0f || 
-                1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin / 2.0f)
-                uiEffects.giveFeedback("Perfect");
-            else if (rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin) / 2.0f || 
-                1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin) / 2.0f)
-                uiEffects.giveFeedback("Excellent");
-            else if (rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin + goodMargin) / 2.0f || 
-                1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin + goodMargin) / 2.0f)
-                uiEffects.giveFeedback("Good");
+            if (!beatUsed)
+            {
+                if (rhythmManager.GetCurrentBeatProgress() < perfectMargin / 2.0f ||
+                    1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin / 2.0f)
+                    uiEffects.giveFeedback("Perfect");
+                else if (rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin) / 2.0f ||
+                    1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin) / 2.0f)
+                    uiEffects.giveFeedback("Excellent");
+                else if (rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin + goodMargin) / 2.0f ||
+                    1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin + goodMargin) / 2.0f)
+                    uiEffects.giveFeedback("Good");
+                else
+                {
+                    missedNote();
+                    rhythmManager.useBeat();
+                    return false;
+                }
+
+                rhythmManager.useBeat();
+            }
             else
             {
-                missedNote();
-                rhythmManager.useBeat();
-                return false;
-            }
+                if (1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin / 2.0f)
+                    uiEffects.giveFeedback("Perfect");
+                else if (1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin) / 2.0f)
+                    uiEffects.giveFeedback("Excellent");
+                else if (1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin + goodMargin) / 2.0f)
+                    uiEffects.giveFeedback("Good");
+                else
+                {
+                    missedNote();
+                    rhythmManager.useNextBeat();
+                    return false;
+                }
 
-            rhythmManager.useBeat();
+                rhythmManager.useNextBeat();
+            }
+            return true;
         }
         else
         {
-            if (1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin / 2.0f)
-                uiEffects.giveFeedback("Perfect");
-            else if (1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin) / 2.0f)
-                uiEffects.giveFeedback("Excellent");
-            else if (1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin + goodMargin) / 2.0f)
-                uiEffects.giveFeedback("Good");
+            if (!beatUsed)
+            {
+                if (progress < perfectMargin / 2.0f ||
+                    1 - progress < perfectMargin / 2.0f)
+                    uiEffects.giveFeedback("Perfect");
+                else if (progress < (perfectMargin + excellentMargin) / 2.0f ||
+                    1 - progress < (perfectMargin + excellentMargin) / 2.0f)
+                    uiEffects.giveFeedback("Excellent");
+                else if (progress < (perfectMargin + excellentMargin + goodMargin) / 2.0f ||
+                    1 - progress < (perfectMargin + excellentMargin + goodMargin) / 2.0f)
+                    uiEffects.giveFeedback("Good");
+                else
+                {
+                    uiEffects.giveFeedback("Miss");
+                    return false;
+                }
+            }
             else
             {
-                missedNote();
-                rhythmManager.useNextBeat();
-                return false;
+                if (1 - progress < perfectMargin / 2.0f)
+                    uiEffects.giveFeedback("Perfect");
+                else if (1 - progress < (perfectMargin + excellentMargin) / 2.0f)
+                    uiEffects.giveFeedback("Excellent");
+                else if (1 - progress < (perfectMargin + excellentMargin + goodMargin) / 2.0f)
+                    uiEffects.giveFeedback("Good");
+                else
+                {
+                    uiEffects.giveFeedback("Miss");
+                    return false;
+                }
             }
-
-            rhythmManager.useNextBeat();
+            return true;
         }
-        return true;
     }
 
     /// <summary>

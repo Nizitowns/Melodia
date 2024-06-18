@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ButtonIndicator : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class ButtonIndicator : MonoBehaviour
 
     // Variable to track the current alpha
     private float alpha = 0f;
+    // Resting alpha for the button
+    private float restAlpha = 0f;
     // Timer to track the flash
     private float timer = 0.0f;
 
@@ -26,12 +29,20 @@ public class ButtonIndicator : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+        GetComponent<Image>().color = new Color(1f, 1f, 1f, 0f);
     }
 
     #endregion
 
     #region Graphics
+
+    /// <summary>
+    /// Sets the resting alpha of the button
+    /// </summary>
+    public void setRestingAlpha(float a)
+    {
+        restAlpha = a;
+    }
 
     /// <summary>
     /// Initiates the button flash on the beat
@@ -54,11 +65,11 @@ public class ButtonIndicator : MonoBehaviour
         if (timer == flashTime)
             alpha = 1f;
         else if (timer < (flashTime / 2.0f) && timer > 0.0f)
-            alpha -= Time.deltaTime / (flashTime / 2.0f);
+            alpha -= (1 - restAlpha) * (Time.deltaTime / (flashTime / 2.0f));
         else if (timer <= 0.0f)
-            alpha = 0f;
+            alpha = restAlpha;
 
-        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, alpha);
+        GetComponent<Image>().color = new Color(1f, 1f, 1f, alpha);
 
         if (timer > 0.0f)
             timer -= Time.deltaTime;

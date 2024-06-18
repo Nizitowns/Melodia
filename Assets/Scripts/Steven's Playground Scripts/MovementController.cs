@@ -36,6 +36,10 @@ public class MovementController : MonoBehaviour
     private GameObject parallaxContainer;
 
     [SerializeField]
+    [Tooltip("A reference to the game object containing the tribe as children.")]
+    private GameObject tribe;
+
+    [SerializeField]
     [Tooltip("The amount the tribe moves forward.")]
     private float moveDistance = 1.0f;
 
@@ -56,6 +60,8 @@ public class MovementController : MonoBehaviour
 
     // Flag for whether the tribe is drifting
     private bool drifting = false;
+    // Flag for whether the tribe has moved forward yet
+    private bool moved = false;
     // Keeping track of the tribe's progress
     private float progress = 0f;
 
@@ -83,6 +89,16 @@ public class MovementController : MonoBehaviour
             p.setMoveLeft(left);
             p.addDistance(distance);
         }
+    }
+
+    /// <summary>
+    /// Moves the tribe and saturation effect forward (at start of level)
+    /// </summary>
+    private void moveTribe()
+    {
+        foreach (Transform t in tribe.GetComponentInChildren<Transform>())
+            if (t.localPosition.x < -5f)
+                t.gameObject.GetComponent<Transform>().SetLocalPositionAndRotation(t.localPosition + new Vector3(Time.deltaTime * 2f, 0f, 0f), Quaternion.identity);
     }
 
     #endregion
@@ -123,8 +139,10 @@ public class MovementController : MonoBehaviour
     /// </summary>
     public void moveForward()
     {
+        moved = true;
         moveBackground(moveDistance, true);
         progress += moveDistance;
+
         if (levelManager.getCurrentEvent().type == LevelEventType.FREE_AREA && progress >= levelManager.getCurrentEvent().areaLength)
         {
             levelManager.finishEvent();
@@ -139,6 +157,12 @@ public class MovementController : MonoBehaviour
     {
         moveBackground(regressDistance, false);
         progress -= regressDistance;
+    }
+
+    private void Update()
+    {
+        if (moved)
+            moveTribe();
     }
 
     #endregion
