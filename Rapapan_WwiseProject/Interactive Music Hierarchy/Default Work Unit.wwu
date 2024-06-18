@@ -52,6 +52,11 @@
 						<MusicSegment Name="MainMusic" ID="{A7383EF7-D26C-465C-B40D-7DA4A1693F12}" ShortID="115944274">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="242000"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">

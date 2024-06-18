@@ -290,6 +290,7 @@ public class HUD_VireshMod : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             IncDecScore(1);
+            ProgressLevelBar();
         }
     }
     
