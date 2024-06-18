@@ -68,6 +68,8 @@ public class RhythmManager : MonoBehaviour
     private int patternLength = 4;
     // Number of beats played toward a command
     private int beatsPlayed = 0;
+    // Numnber of correct repetitions played
+    private int repetitionsMade = 0;
     // Flag for whether the player played a note on the last beat
     private bool lastBeatUsed = false;
     // Flag for whether the player has played a note on this beat
@@ -201,6 +203,7 @@ public class RhythmManager : MonoBehaviour
     /// </summary>
     private void checkDroppedCommand()
     {
+        print(commandString.ToString());
         if (commandString.Count > 0 && !lastBeatUsed)
             inputReceiver.missedNote();
     }
@@ -369,9 +372,14 @@ public class RhythmManager : MonoBehaviour
                 if (beatsPlayed >= patternLength)
                 {
                     beatsPlayed = 0;
+                    repetitionsMade++;
                     if (levelManager.getCurrentEvent().doCommand)
                         commandManager.doCommand(pattern);
-                    levelManager.finishEvent();
+                    if (repetitionsMade == levelManager.getCurrentEvent().repetitions)
+                    {
+                        levelManager.finishEvent();
+                        repetitionsMade = 0;
+                    }
                 }
                 break;
             case State.FREEPLAY:

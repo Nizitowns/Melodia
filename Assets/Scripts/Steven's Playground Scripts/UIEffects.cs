@@ -53,6 +53,7 @@ public class UIEffects : MonoBehaviour
 
     // Instances
     private FeedbackBoard feedbackBoard;
+    private ScoreBoard scoreBoard;
 
     #endregion
 
@@ -61,6 +62,7 @@ public class UIEffects : MonoBehaviour
     private void Start()
     {
         feedbackBoard = FeedbackBoard.Instance;
+        scoreBoard = ScoreBoard.Instance;
     }
 
     #endregion
@@ -95,6 +97,11 @@ public class UIEffects : MonoBehaviour
     {
         feedbackBoard.setText(feedback);
         feedbackBoard.show();
+    }
+
+    public void addScore(int score)
+    {
+        scoreBoard.IncrementScore(score);
     }
 
     #endregion

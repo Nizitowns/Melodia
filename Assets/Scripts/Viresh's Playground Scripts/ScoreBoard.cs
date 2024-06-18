@@ -9,6 +9,30 @@ using UnityEngine.UI;
 
 public class ScoreBoard : MonoBehaviour
 {
+    #region Singleton
+
+    // Singleton instance
+    public static ScoreBoard Instance { get; private set; }
+
+    /// <summary>
+    /// Called when the script instance is being loaded.
+    /// Ensures there is only one instance of RhythmSystem.
+    /// </summary>
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Keep this object across scene loads
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    #endregion
+
     [SerializeField] Text score;
     // Start is called before the first frame update
     public static int scoreBoardValue;
@@ -28,7 +52,7 @@ public class ScoreBoard : MonoBehaviour
         Vector2 targetPosition = screenCorner;// + offset;
 
         // Set the position
-        rectTransform.position = targetPosition;
+        //rectTransform.position = targetPosition;
     }
 
     Vector2 GetScreenCorner(Corner corner)
@@ -48,18 +72,18 @@ public class ScoreBoard : MonoBehaviour
         }
     }
 
-    void ResetScore()
+    public void ResetScore()
     {
         scoreBoardValue = 0;
     }
 
-    void IncrementScore(int incVal)
+    public void IncrementScore(int incVal)
     {
         scoreBoardValue += incVal;
         score.text = scoreBoardValue.ToString();
     }
 
-    void DecrementScore(int decVal)
+    public void DecrementScore(int decVal)
     {
         scoreBoardValue -= decVal;
         score.text = scoreBoardValue.ToString();

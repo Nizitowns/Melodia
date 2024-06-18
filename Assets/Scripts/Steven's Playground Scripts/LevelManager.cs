@@ -35,21 +35,24 @@ public class LevelManager : MonoBehaviour
     #region Fields
 
     [System.Serializable]
-    public enum LevelEventType { CUTSCENE, SIMON_SAYS, FREE_AREA, NEW_TRIBE, FINISH }
+    public enum LevelEventType { CUTSCENE, SIMON_SAYS, FREE_AREA, NEW_TRIBE, OBSTACLE, FINISH }
 
     [System.Serializable]
     public class LevelEvent
     {
         public string name; // This is here just for notes in the inspector
-        public LevelEventType type;
-        public float areaLength;
-        public string screenText;
-        public bool doCommand;
-        public Command newTribeCommand;
-        public Command simonCommand;
-        public GameObject cutscene;
-        public UnityEvent onFinish;
-        public List<GameObject> objectsToDestroy;
+        public LevelEventType type; // What kind of level event this is
+        public float areaLength; // How long the area is (FREE_AREA)
+        public string screenText; // What text to display on the screen (placeholder for quick testing)
+        public bool doCommand; // Whether the game should execute the command completed during simon says (SIMON_SAYS, NEW_TRIBE)
+        public bool doSimon; // Whether the game should perform the teaching portion of simon says (SIMON_SAYS, NEW_TRIBE)
+        public int repetitions; // How many repetitions must be completed to progress past simon says (SIMON_SAYS, NEW_TRIBE)
+        public GameObject obstacle; // The GameObject that represents the obstacle or new tribe (NEW_TRIBE, OBSTACLE)
+        public Command newTribeCommand; // What command the new tribe is teaching the player (NEW_TRIBE)
+        public Command simonCommand; // What command is taught during simon says (SIMON_SAYS)
+        public GameObject cutscene; // The GameObject containing the Cutscene script (CUTSCENE)
+        public UnityEvent onFinish; // Function to execute when the event is finished (animations, etc. before next event)
+        public List<GameObject> objectsToDestroy; // Objects to be destroyed when the event is finished (obstacles, cutscene-specific objects, etc.)
     }
 
     [SerializeField]
@@ -74,6 +77,7 @@ public class LevelManager : MonoBehaviour
     {
         // Instances
         rhythmManager = RhythmManager.Instance;
+        setRhythmState();
     }
 
     #endregion
@@ -95,11 +99,18 @@ public class LevelManager : MonoBehaviour
         {
             case LevelEventType.SIMON_SAYS:
                 rhythmManager.setSimonCommand(levelEvents[eventIndex].simonCommand);
-                rhythmManager.setGameState(State.SIMONTEACH);
+                if (levelEvents[eventIndex].doSimon)
+                    rhythmManager.setGameState(State.SIMONTEACH);
+                else
+                    rhythmManager.setGameState(State.SIMONPLAY);
                 break;
             case LevelEventType.NEW_TRIBE:
+                bringObstacle();
                 rhythmManager.setSimonCommand(levelEvents[eventIndex].newTribeCommand);
-                rhythmManager.setGameState(State.SIMONTEACH);
+                if (levelEvents[eventIndex].doSimon)
+                    rhythmManager.setGameState(State.SIMONTEACH);
+                else
+                    rhythmManager.setGameState(State.SIMONPLAY);
                 break;
             case LevelEventType.FREE_AREA:
                 rhythmManager.setGameState(State.FREEPLAY);
@@ -113,6 +124,15 @@ public class LevelManager : MonoBehaviour
     public LevelEvent getCurrentEvent()
     {
         return levelEvents[eventIndex];
+    }
+
+    private void bringObstacle()
+    {
+        if (levelEvents[eventIndex].obstacle)
+        {
+            GameObject obstacle = levelEvents[eventIndex].obstacle;
+            obstacle.GetComponent<Obstacle>().enter();
+        }
     }
 
     private void doEvent()

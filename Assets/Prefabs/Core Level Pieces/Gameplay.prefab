@@ -1,0 +1,410 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &888480976957171645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7532566553817749198}
+  - component: {fileID: 4544846664856241446}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7532566553817749198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888480976957171645}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6276411427274084303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4544846664856241446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888480976957171645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad4c47831f323f448e1275b664058b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  levelEvents:
+  - name: Dore-Dore-Dore-Dore Tutorial
+    type: 0
+    areaLength: 0
+    screenText: 
+    doCommand: 0
+    newTribeCommand:
+      name: 
+      actionName: 
+      keys: 
+    simonCommand:
+      name: 
+      actionName: 
+      keys: 
+    cutscene: {fileID: 0}
+    onFinish:
+      m_PersistentCalls:
+        m_Calls: []
+    objectsToDestroy: []
+  - name: Wake Simon Says
+    type: 1
+    areaLength: 0
+    screenText: 'Give it a go! Play Do-Re four times in succession to wake the character!
+      Remember: always follow the rhythm!'
+    doCommand: 0
+    newTribeCommand:
+      name: 
+      actionName: 
+      keys: 
+    simonCommand:
+      name: Dore Dore Dore Dore
+      actionName: wake
+      keys: 04000000040000000400000004000000
+    cutscene: {fileID: 0}
+    onFinish:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: MainCharacter, Assembly-CSharp
+          m_MethodName: wakeUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    objectsToDestroy: []
+  - name: Move Simon Says
+    type: 1
+    areaLength: 0
+    screenText: "Next let's learn our very first command: Move Forward! (\u2192\u2192\u2192\u2191)"
+    doCommand: 1
+    newTribeCommand:
+      name: 
+      actionName: 
+      keys: 
+    simonCommand:
+      name: Dore-Dore-Dore-La
+      actionName: move
+      keys: 04000000040000000400000002000000
+    cutscene: {fileID: 0}
+    onFinish:
+      m_PersistentCalls:
+        m_Calls: []
+    objectsToDestroy: []
+  - name: Free Area
+    type: 2
+    areaLength: 10
+    screenText: Keep it up! See how the blight is lifted by the power of music!\nKeep
+      it up!
+    doCommand: 0
+    newTribeCommand:
+      name: 
+      actionName: 
+      keys: 
+    simonCommand:
+      name: 
+      actionName: 
+      keys: 
+    cutscene: {fileID: 0}
+    onFinish:
+      m_PersistentCalls:
+        m_Calls: []
+    objectsToDestroy: []
+  - name: Finish
+    type: 4
+    areaLength: 0
+    screenText: Finished!
+    doCommand: 0
+    newTribeCommand:
+      name: 
+      actionName: 
+      keys: 
+    simonCommand:
+      name: 
+      actionName: 
+      keys: 
+    cutscene: {fileID: 0}
+    onFinish:
+      m_PersistentCalls:
+        m_Calls: []
+    objectsToDestroy: []
+--- !u!1 &5012321901693658586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6276411427274084303}
+  m_Layer: 0
+  m_Name: Gameplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6276411427274084303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5012321901693658586}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0397754, y: -0.45239753, z: 0.03749267}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4171785983438108795}
+  - {fileID: 2667605426337007694}
+  - {fileID: 7557898817562840612}
+  - {fileID: 7532566553817749198}
+  - {fileID: 712532126999970078}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5399308314893992072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2667605426337007694}
+  - component: {fileID: 6232977440715207730}
+  m_Layer: 0
+  m_Name: MovementController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2667605426337007694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5399308314893992072}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6276411427274084303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6232977440715207730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5399308314893992072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736d91da6b4685848822bbae1ee3a203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxContainer: {fileID: 0}
+  tribe: {fileID: 0}
+  moveDistance: 1
+  feverMultiplier: 2
+  regressDistance: 0.5
+  driftDistance: 0.1
+--- !u!1 &5561496160531495296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4171785983438108795}
+  - component: {fileID: 820233199787594986}
+  m_Layer: 0
+  m_Name: RhythmManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4171785983438108795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5561496160531495296}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6276411427274084303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &820233199787594986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5561496160531495296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e89c5accdcfca5d458f3528b88b99dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bpm: 120
+  staticBeatLimit: 10
+--- !u!1 &7611957070255164604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712532126999970078}
+  - component: {fileID: 3595127836674818004}
+  - component: {fileID: 2958476150872838572}
+  m_Layer: 0
+  m_Name: ComboHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &712532126999970078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7611957070255164604}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6276411427274084303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3595127836674818004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7611957070255164604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 288f324c77bc6d94eb6e89152ab5ab7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboCount: 0
+  maxComboCount: 0
+  currentNoteStreak: 0
+  highestNoteStreak: 0
+  playerScore: 0
+  scorePerNote: 1
+  comboTimer: 0
+  inFeverMode: 0
+  feverModeScoreMultiplier: 2
+  feverModeEffect: {fileID: 4496600980699240170, guid: 8d2d36c19e325884f86aa3c14f82db49, type: 3}
+  comboBreakEffect: {fileID: 1107631867711987295, guid: c42684af104ba7f438c5611a4f694ab4, type: 3}
+  feverModeSound: {fileID: 0}
+--- !u!114 &2958476150872838572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7611957070255164604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a205bacba2116746aec65ea81939318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7654897623377831781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7557898817562840612}
+  - component: {fileID: 7703389971945649067}
+  m_Layer: 0
+  m_Name: CommandManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7557898817562840612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7654897623377831781}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6276411427274084303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7703389971945649067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7654897623377831781}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9ff49adcc278a4fbd48eeb3131ffd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commandList:
+  - name: Dore-Dore-Dore-La
+    actionName: move
+    keys: 04000000040000000400000002000000
+  - name: La-La-So-La
+    actionName: cure
+    keys: 02000000020000000300000002000000
+  - name: Mire-La-Dore-So
+    actionName: communicate
+    keys: 01000000020000000400000003000000
+  - name: Mire-Dore-Mire-Dore
+    actionName: clear
+    keys: 01000000040000000100000004000000

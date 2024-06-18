@@ -62,6 +62,8 @@ public class MovementController : MonoBehaviour
     private bool drifting = false;
     // Flag for whether the tribe has moved forward yet
     private bool moved = false;
+    // Flag for whether the tribe has made their first move yet
+    private bool firstMove = false;
     // Keeping track of the tribe's progress
     private float progress = 0f;
 
@@ -96,9 +98,13 @@ public class MovementController : MonoBehaviour
     /// </summary>
     private void moveTribe()
     {
+        moved = true;
         foreach (Transform t in tribe.GetComponentInChildren<Transform>())
-            if (t.localPosition.x < -5f)
+            if (t.gameObject.tag == "Tribe" && t.localPosition.x < -5f)
+            {
                 t.gameObject.GetComponent<Transform>().SetLocalPositionAndRotation(t.localPosition + new Vector3(Time.deltaTime * 2f, 0f, 0f), Quaternion.identity);
+                moved = false;
+            }
     }
 
     #endregion
@@ -139,12 +145,13 @@ public class MovementController : MonoBehaviour
     /// </summary>
     public void moveForward()
     {
-        moved = true;
+        firstMove = true;
         moveBackground(moveDistance, true);
         progress += moveDistance;
 
         if (levelManager.getCurrentEvent().type == LevelEventType.FREE_AREA && progress >= levelManager.getCurrentEvent().areaLength)
         {
+            progress = 0f;
             levelManager.finishEvent();
         }
             
@@ -161,7 +168,7 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        if (moved)
+        if (firstMove && !moved)
             moveTribe();
     }
 

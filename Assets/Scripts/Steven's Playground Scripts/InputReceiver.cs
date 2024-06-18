@@ -64,6 +64,7 @@ public class InputReceiver : MonoBehaviour
     private MovementController movementController;
     private SFXManager sfx;
     private LevelManager levelManager;
+    private ComboHandler comboHandler;
 
     // Individual input action maps
     private InputActionMap gameplayActionMap;
@@ -95,6 +96,7 @@ public class InputReceiver : MonoBehaviour
         movementController = MovementController.Instance;
         sfx = SFXManager.Instance;
         levelManager = LevelManager.Instance;
+        comboHandler = ComboHandler.Instance;
 
         InitializeInputActions();
         EnableGameplayInput();
@@ -210,6 +212,7 @@ public class InputReceiver : MonoBehaviour
                 else if (levelManager.getCurrentEvent().type == LevelEventType.FREE_AREA)
                 {
                     commandManager.checkForCommand(button);
+                    comboHandler.RegisterHit();
                 }
             }
         }
@@ -312,6 +315,7 @@ public class InputReceiver : MonoBehaviour
         }
         else if (levelManager.getCurrentEvent().type == LevelEventType.FREE_AREA)
         {
+            comboHandler.ResetCombo();
             uiEffects.giveFeedback("Miss");
             rhythmManager.emptyCommandString();
             movementController.moveBackward();

@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class ScoreMultiplierHandler : MonoBehaviour
 {
+    // Instances
+    private UIEffects uiEffects;
 
     // Singleton instance
     public static ScoreMultiplierHandler Instance { get; private set; }
@@ -27,6 +29,12 @@ public class ScoreMultiplierHandler : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        // Instances
+        uiEffects = UIEffects.Instance;
+    }
+
     /// <summary>
     /// Applies score multiplier to the score per note.
     /// </summary>
@@ -45,6 +53,8 @@ public class ScoreMultiplierHandler : MonoBehaviour
         //apply the modified values to the combo score
         //int modifiedScore = currentComboScore - 1 + modifiedScorePerNote;
         int modifiedScore = currentPlayerScore + modifiedScorePerNote;
+
+        uiEffects.addScore(modifiedScorePerNote);
 
         //set the final modified combo score
         //ComboHandler.Instance.SetCurrentComboCount(modifiedScore);

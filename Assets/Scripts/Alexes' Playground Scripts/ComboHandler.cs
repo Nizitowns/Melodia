@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using JetBrains.Annotations;
+using static RhythmManager;
 
 /// <summary>
 /// Manages the combo system and fever Mode.
@@ -48,11 +49,26 @@ public class ComboHandler : MonoBehaviour
 
     private int feverModeThreshold = 4; // Number of consecutive hits to enter Fever Mode
 
+    // Instances
+    private UIEffects uiEffects;
+    private RhythmManager rhythmManager;
+
     #endregion
 
     #region Multipliers
 
     public int feverModeScoreMultiplier = 2;
+
+    #endregion
+
+    #region Initialization
+
+    private void Start()
+    {
+        // Instances
+        uiEffects = UIEffects.Instance;
+        rhythmManager = RhythmManager.Instance;
+    }
 
     #endregion
 
@@ -72,10 +88,13 @@ public class ComboHandler : MonoBehaviour
     {
         if (currentNoteStreak > 0)
         {
-            comboTimer += Time.deltaTime;
-            if (comboTimer >= 5f) // Reset combo after 5 seconds of inactivity
+            if (rhythmManager.getGameState() == State.FREEPLAY)
             {
-                ResetCombo();
+                comboTimer += Time.deltaTime;
+                if (comboTimer >= 5f) // Reset combo after 5 seconds of inactivity
+                {
+                    ResetCombo();
+                }
             }
         }
     }
@@ -106,6 +125,7 @@ public class ComboHandler : MonoBehaviour
         {
             Debug.Log("Increment normal");
             playerScore = playerScore + scorePerNote;
+            uiEffects.addScore(scorePerNote);
         }
         
         //if the player correctly inputs a 4 note combination
