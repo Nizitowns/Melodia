@@ -12,10 +12,10 @@ Switch	ID	Name	Switch Group			Notes
 	3079300808	Mire	RhythmInputSwitchGroup			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	2085650	Mire	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\Mire_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\Mire		57795
-	233236633	La	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\La_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\La		53054
+	2085650	Mire	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\Mire_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\Mire		61746
+	233236633	La	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\La_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\La		57579
 	349763783	Main music	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\Main music_D95B34B4.wem		\Interactive Music Hierarchy\Default Work Unit\MainPlaylist\MainMusic\Main music		10421161
-	739340601	Dore	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\Dore_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\Dore		66446
+	739340601	Dore	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\Dore_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\Dore		67736
 	786987112	MainMusic_Click	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\MainMusic_Click_D95B34B4.wem		\Interactive Music Hierarchy\Default Work Unit\MainPlaylist\MainMusic\MainMusic_Click		332731
-	1017258917	Do	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\Do_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\Do		65363
+	854899697	So	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Windows\SFX\So_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\So		60188
 
