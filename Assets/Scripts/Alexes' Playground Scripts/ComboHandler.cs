@@ -74,6 +74,9 @@ public class ComboHandler : MonoBehaviour
 
     #region Visual and Audio Feedback
 
+    //The parent of the combo test visuals so that they can appear above the HUD elements nicely.
+    public Transform FeedbackUIGroup; //This is kinda a hack so should probably be replaced when the combo test visuals are finalized.
+
     //in the combo test scene I made, these objects act as visual placeholders
     public GameObject feverModeEffect, comboBreakEffect;
     
@@ -163,7 +166,7 @@ public class ComboHandler : MonoBehaviour
         if (feverModeEffect != null)
         {
             //spawn the feverModeEffect prefab clone at the location of the prefab
-            Instantiate(feverModeEffect, feverModeEffect.transform.position, feverModeEffect.transform.rotation);
+            Instantiate(feverModeEffect, feverModeEffect.transform.position, feverModeEffect.transform.rotation, FeedbackUIGroup);
         }
         if (feverModeSound != null)
         {
@@ -193,7 +196,7 @@ public class ComboHandler : MonoBehaviour
         }
 
         //spawn the feverModeEffect prefab clone at the location of the prefab
-        Instantiate(comboBreakEffect, comboBreakEffect.transform.position, comboBreakEffect.transform.rotation);
+        Instantiate(comboBreakEffect, comboBreakEffect.transform.position, comboBreakEffect.transform.rotation, FeedbackUIGroup);
 
     }
 

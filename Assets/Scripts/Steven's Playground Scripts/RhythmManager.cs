@@ -375,7 +375,7 @@ public class RhythmManager : MonoBehaviour
                     repetitionsMade++;
                     if (levelManager.getCurrentEvent().doCommand)
                         commandManager.doCommand(pattern);
-                    if (repetitionsMade == levelManager.getCurrentEvent().repetitions)
+                    if (repetitionsMade >= levelManager.getCurrentEvent().repetitions)
                     {
                         levelManager.finishEvent();
                         repetitionsMade = 0;

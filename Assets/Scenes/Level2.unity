@@ -315,7 +315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bb8c2000dad14aa4a8b192d914f1c1c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c93e9d435869644ea51be251499bb1f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -601,6 +601,10 @@ PrefabInstance:
       propertyPath: levelEvents.Array.data[3].onFinish.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4054847304841099936, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: FeedbackUIGroup
+      value: 
+      objectReference: {fileID: 537331973}
     - target: {fileID: 4460245163260340270, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       propertyPath: m_Size.x
       value: 172.8
@@ -779,6 +783,11 @@ PrefabInstance:
       addedObject: {fileID: 116953451}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+--- !u!224 &537331973 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6699570203337159211, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+  m_PrefabInstance: {fileID: 537331972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &666460468
 GameObject:
   m_ObjectHideFlags: 0
