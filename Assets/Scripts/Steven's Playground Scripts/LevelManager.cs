@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using static CommandManager;
 using static RhythmManager;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -22,7 +23,6 @@ public class LevelManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Keep this object across scene loads
         }
         else
         {
@@ -51,6 +51,7 @@ public class LevelManager : MonoBehaviour
         public Command newTribeCommand; // What command the new tribe is teaching the player (NEW_TRIBE)
         public Command simonCommand; // What command is taught during simon says (SIMON_SAYS)
         public GameObject cutscene; // The GameObject containing the Cutscene script (CUTSCENE)
+        public string nextLevel; // The name of the scene that contains the next level (FINISH)
         public UnityEvent onFinish; // Function to execute when the event is finished (animations, etc. before next event)
         public List<GameObject> objectsToDestroy; // Objects to be destroyed when the event is finished (obstacles, cutscene-specific objects, etc.)
     }
@@ -65,6 +66,7 @@ public class LevelManager : MonoBehaviour
 
     // Instances
     private RhythmManager rhythmManager;
+    private LevelTransition levelTransition;
 
     // Index of current event
     private int eventIndex;
@@ -77,6 +79,8 @@ public class LevelManager : MonoBehaviour
     {
         // Instances
         rhythmManager = RhythmManager.Instance;
+        levelTransition = LevelTransition.Instance;
+
         setRhythmState();
     }
 
@@ -146,6 +150,10 @@ public class LevelManager : MonoBehaviour
             else
                 nextEvent();
         }
+        else if (currentEvent.type == LevelEventType.FINISH)
+        {
+            goToNextLevel();
+        }
     }
 
     private void cutscene(Cutscene cs)
@@ -158,6 +166,30 @@ public class LevelManager : MonoBehaviour
         Text text = canvas.transform.Find("Text").gameObject.GetComponent<Text>();
         text.text = "";
         nextEvent();
+    }
+
+    private void goToNextLevel()
+    {
+        if (levelEvents[eventIndex].nextLevel != "")
+        {
+            StartCoroutine(loadNextLevel());
+        }
+    }
+
+    private IEnumerator loadNextLevel()
+    {
+        yield return new WaitForSeconds(3);
+
+        levelTransition.fadeIn();
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelEvents[eventIndex].nextLevel);
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        levelTransition.fadeOut();
     }
 
     #endregion

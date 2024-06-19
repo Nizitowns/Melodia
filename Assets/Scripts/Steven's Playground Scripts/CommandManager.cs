@@ -18,7 +18,6 @@ public class CommandManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Keep this object across scene loads
         }
         else
         {

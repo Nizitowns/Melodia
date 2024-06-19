@@ -24,7 +24,6 @@ public class ComboHandler : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Keep this object across scene loads
         }
         else
         {
