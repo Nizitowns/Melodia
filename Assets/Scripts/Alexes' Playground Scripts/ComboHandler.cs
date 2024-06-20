@@ -165,7 +165,7 @@ public class ComboHandler : MonoBehaviour
         if (feverModeEffect != null)
         {
             //spawn the feverModeEffect prefab clone at the location of the prefab
-            Instantiate(feverModeEffect, feverModeEffect.transform.position, feverModeEffect.transform.rotation, FeedbackUIGroup);
+            Instantiate(feverModeEffect, FeedbackUIGroup);
         }
         if (feverModeSound != null)
         {
@@ -195,7 +195,7 @@ public class ComboHandler : MonoBehaviour
         }
 
         //spawn the feverModeEffect prefab clone at the location of the prefab
-        Instantiate(comboBreakEffect, comboBreakEffect.transform.position, comboBreakEffect.transform.rotation, FeedbackUIGroup);
+        Instantiate(comboBreakEffect,FeedbackUIGroup);
 
     }
 
