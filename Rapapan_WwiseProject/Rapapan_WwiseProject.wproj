@@ -33,8 +33,8 @@
 				<Property Name="SoundBankHeaderFilePath" Type="string" Value="..\..\GitHub\Rapapan\Assets\StreamingAssets\Audio\GeneratedSoundBanks"/>
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>
-						<Value Platform="Windows">..\..\GitHub\Rapapan\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\</Value>
-						<Value Platform="Mac">..\..\GitHub\Rapapan\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\</Value>
+						<Value Platform="Windows">..\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\</Value>
+						<Value Platform="Mac">..\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdDescription" Type="string">
