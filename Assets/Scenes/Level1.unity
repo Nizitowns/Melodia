@@ -608,7 +608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3706690149977701396, guid: 5b51ab434deec724786695fe19ac01ce, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -84.60203
+      value: -84.602036
       objectReference: {fileID: 0}
     - target: {fileID: 3706690149977701396, guid: 5b51ab434deec724786695fe19ac01ce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -801,10 +801,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.11979167
-    y: 0
-    width: 0.51918226
-    height: 0.4037037
+    x: 0
+    y: 0.11111111
+    width: 1
+    height: 0.77757615
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -2227,7 +2227,7 @@ PrefabInstance:
     - target: {fileID: 3595127836674818004, guid: bf4af6ba233b32c49baf8642235e5c08, type: 3}
       propertyPath: FeedbackUIGroup
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 423583142}
     - target: {fileID: 4544846664856241446, guid: bf4af6ba233b32c49baf8642235e5c08, type: 3}
       propertyPath: canvas
       value: 
