@@ -604,11 +604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3706690149977701396, guid: 5b51ab434deec724786695fe19ac01ce, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 418.8461
+      value: 418.84607
       objectReference: {fileID: 0}
     - target: {fileID: 3706690149977701396, guid: 5b51ab434deec724786695fe19ac01ce, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -84.602036
+      value: -84.60205
       objectReference: {fileID: 0}
     - target: {fileID: 3706690149977701396, guid: 5b51ab434deec724786695fe19ac01ce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1853,6 +1853,11 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!224 &2107710471 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9101057791101095062, guid: 5b51ab434deec724786695fe19ac01ce, type: 3}
+  m_PrefabInstance: {fileID: 423583141}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2125025278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,7 +2232,7 @@ PrefabInstance:
     - target: {fileID: 3595127836674818004, guid: bf4af6ba233b32c49baf8642235e5c08, type: 3}
       propertyPath: FeedbackUIGroup
       value: 
-      objectReference: {fileID: 423583142}
+      objectReference: {fileID: 2107710471}
     - target: {fileID: 4544846664856241446, guid: bf4af6ba233b32c49baf8642235e5c08, type: 3}
       propertyPath: canvas
       value: 
