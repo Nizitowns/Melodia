@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static FeedbackBoard;
 
 public class UIEffects : MonoBehaviour
 {
@@ -92,9 +93,9 @@ public class UIEffects : MonoBehaviour
         }
     }
 
-    public void giveFeedback(string feedback)
+    public void giveFeedback(Feedback fb)
     {
-        feedbackBoard.setText(feedback);
+        feedbackBoard.setFeedback(fb);
         feedbackBoard.show();
     }
 

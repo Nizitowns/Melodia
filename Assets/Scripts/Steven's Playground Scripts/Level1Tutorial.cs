@@ -54,8 +54,8 @@ public class Level1Tutorial : Cutscene
             border.setRestingAlpha(0f);
             buttonDore.setRestingAlpha(0.5f);
             buttonLa.setRestingAlpha(0.5f);
-            buttonDore.transform.SetLocalPositionAndRotation(new Vector3(235f, 64f, 0f), Quaternion.identity);
-            buttonLa.transform.SetLocalPositionAndRotation(new Vector3(385f, 64f, 0f), Quaternion.identity);
+           // buttonDore.transform.SetLocalPositionAndRotation(new Vector3(235f, 64f, 0f), Quaternion.identity);
+           // buttonLa.transform.SetLocalPositionAndRotation(new Vector3(385f, 64f, 0f), Quaternion.identity);
             count++;
             background1.GetComponent<Image>().enabled = true;
         }
@@ -216,8 +216,8 @@ public class Level1Tutorial : Cutscene
         if (count == 12)
         {
             over = true;
-            buttonDore.transform.SetLocalPositionAndRotation(new Vector3(804.9f, 73.0287f, 0f), Quaternion.identity);
-            buttonLa.transform.SetLocalPositionAndRotation(new Vector3(313.7525f, 235.8396f, 0f), Quaternion.identity);
+            //buttonDore.transform.SetLocalPositionAndRotation(new Vector3(804.9f, 73.0287f, 0f), Quaternion.identity);
+            //buttonLa.transform.SetLocalPositionAndRotation(new Vector3(313.7525f, 235.8396f, 0f), Quaternion.identity);
             border.setRestingAlpha(1f);
             inputReceiver.enableButton(1);
             inputReceiver.enableButton(2);

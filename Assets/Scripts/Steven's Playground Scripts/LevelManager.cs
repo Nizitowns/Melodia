@@ -45,10 +45,11 @@ public class LevelManager : MonoBehaviour
         public float areaLength; // How long the area is (FREE_AREA)
         public string screenText; // What text to display on the screen (placeholder for quick testing)
         public bool doCommand; // Whether the game should execute the command completed during simon says (SIMON_SAYS, NEW_TRIBE)
-        public bool doSimon; // Whether the game should perform the teaching portion of simon says (SIMON_SAYS, NEW_TRIBE)
-        public int repetitions; // How many repetitions must be completed to progress past simon says (SIMON_SAYS, NEW_TRIBE)
+        public bool doSimon; // Whether the game should perform the teaching portion of simon says (SIMON_SAYS, NEW_TRIBE, OBSTACLE)
+        public int repetitions; // How many repetitions must be completed to progress past simon says (SIMON_SAYS, NEW_TRIBE, OBSTACLE)
         public GameObject obstacle; // The GameObject that represents the obstacle or new tribe (NEW_TRIBE, OBSTACLE)
         public Command newTribeCommand; // What command the new tribe is teaching the player (NEW_TRIBE)
+        public Command obstacleCommand; // What command must be input to clear the obstacle (OBSTACLE)
         public Command simonCommand; // What command is taught during simon says (SIMON_SAYS)
         public GameObject cutscene; // The GameObject containing the Cutscene script (CUTSCENE)
         public string nextLevel; // The name of the scene that contains the next level (FINISH)
@@ -67,6 +68,7 @@ public class LevelManager : MonoBehaviour
     // Instances
     private RhythmManager rhythmManager;
     private LevelTransition levelTransition;
+    private InputReceiver inputReceiver;
 
     // Index of current event
     private int eventIndex;
@@ -80,6 +82,7 @@ public class LevelManager : MonoBehaviour
         // Instances
         rhythmManager = RhythmManager.Instance;
         levelTransition = LevelTransition.Instance;
+        inputReceiver = InputReceiver.Instance;
 
         setRhythmState();
     }
@@ -111,6 +114,14 @@ public class LevelManager : MonoBehaviour
             case LevelEventType.NEW_TRIBE:
                 bringObstacle();
                 rhythmManager.setSimonCommand(levelEvents[eventIndex].newTribeCommand);
+                if (levelEvents[eventIndex].doSimon)
+                    rhythmManager.setGameState(State.SIMONTEACH);
+                else
+                    rhythmManager.setGameState(State.SIMONPLAY);
+                break;
+            case LevelEventType.OBSTACLE:
+                bringObstacle();
+                rhythmManager.setSimonCommand(levelEvents[eventIndex].obstacleCommand);
                 if (levelEvents[eventIndex].doSimon)
                     rhythmManager.setGameState(State.SIMONTEACH);
                 else
@@ -152,6 +163,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (currentEvent.type == LevelEventType.FINISH)
         {
+            inputReceiver.DisableGameplayInput();
             goToNextLevel();
         }
     }

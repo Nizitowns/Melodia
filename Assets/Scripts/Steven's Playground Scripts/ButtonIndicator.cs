@@ -62,6 +62,11 @@ public class ButtonIndicator : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        if (alpha == 0f)
+            transform.Find("Light 2D").gameObject.SetActive(false);
+        else
+            transform.Find("Light 2D").gameObject.SetActive(true);
+
         if (timer == flashTime)
             alpha = 1f;
         else if (timer < (flashTime / 2.0f) && timer > 0.0f)

@@ -30,9 +30,27 @@ public class FeedbackBoard : MonoBehaviour
 
     #region Fields
 
+    public enum Feedback {PERFECT, GREAT, OKAY, MISS}
+
     [SerializeField]
     [Tooltip("The amount of time the feedback is visible.")]
     private float displayTime = 0.5f;
+
+    [SerializeField]
+    [Tooltip("The sprite for the \"Perfect\" feedback.")]
+    private Sprite perfect;
+
+    [SerializeField]
+    [Tooltip("The sprite for the \"Great\" feedback.")]
+    private Sprite great;
+
+    [SerializeField]
+    [Tooltip("The sprite for the \"Okay\" feedback.")]
+    private Sprite okay;
+
+    [SerializeField]
+    [Tooltip("The sprite for the \"Miss\" feedback.")]
+    private Sprite miss;
 
     // Timer for being visible
     private float timer = 0.0f;
@@ -44,10 +62,24 @@ public class FeedbackBoard : MonoBehaviour
     /// <summary>
     /// Changes the text of the feedback board.
     /// </summary>
-    public void setText(string feedback)
+    public void setFeedback(Feedback feedback)
     {
-        GameObject text = transform.Find("statMsg").gameObject;
-        text.GetComponent<Text>().text = feedback;
+        GameObject fb = transform.Find("message").gameObject;
+        switch (feedback)
+        {
+            case Feedback.PERFECT:
+                fb.GetComponent<Image>().sprite = perfect;
+                break;
+            case Feedback.GREAT:
+                fb.GetComponent<Image>().sprite = great;
+                break;
+            case Feedback.OKAY:
+                fb.GetComponent<Image>().sprite = okay;
+                break;
+            case Feedback.MISS:
+                fb.GetComponent<Image>().sprite = miss;
+                break;
+        }
     }
 
     /// <summary>
@@ -56,8 +88,7 @@ public class FeedbackBoard : MonoBehaviour
     public void show()
     {
         timer = displayTime;
-        transform.Find("statImg").gameObject.SetActive(true);
-        transform.Find("statMsg").gameObject.SetActive(true);
+        transform.Find("message").gameObject.SetActive(true);
     }
 
     #endregion
@@ -70,9 +101,15 @@ public class FeedbackBoard : MonoBehaviour
             timer -= Time.deltaTime;
         else
         {
-            transform.Find("statImg").gameObject.SetActive(false);
-            transform.Find("statMsg").gameObject.SetActive(false);
+            transform.Find("message").gameObject.SetActive(false);
         }
+    }
+
+    private void LateUpdate()
+    {
+        transform.Find("message").gameObject.GetComponent<Image>().SetNativeSize();
+        RectTransform rect = transform.Find("message").gameObject.GetComponent<RectTransform>();
+        transform.Find("message").gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(rect.sizeDelta.x / 8.5f, rect.sizeDelta.y / 8.5f);
     }
 
     #endregion
