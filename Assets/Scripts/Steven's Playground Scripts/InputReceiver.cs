@@ -7,6 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using static RhythmManager;
 using static LevelManager;
+using static FeedbackBoard;
 
 public class InputReceiver : MonoBehaviour
 {
@@ -230,13 +231,13 @@ public class InputReceiver : MonoBehaviour
             {
                 if (rhythmManager.GetCurrentBeatProgress() < perfectMargin / 2.0f ||
                     1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin / 2.0f)
-                    uiEffects.giveFeedback("Perfect");
+                    uiEffects.giveFeedback(Feedback.PERFECT);
                 else if (rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin) / 2.0f ||
                     1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin) / 2.0f)
-                    uiEffects.giveFeedback("Excellent");
+                    uiEffects.giveFeedback(Feedback.GREAT);
                 else if (rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin + goodMargin) / 2.0f ||
                     1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin + goodMargin) / 2.0f)
-                    uiEffects.giveFeedback("Good");
+                    uiEffects.giveFeedback(Feedback.OKAY);
                 else
                 {
                     missedNote();
@@ -249,11 +250,11 @@ public class InputReceiver : MonoBehaviour
             else
             {
                 if (1 - rhythmManager.GetCurrentBeatProgress() < perfectMargin / 2.0f)
-                    uiEffects.giveFeedback("Perfect");
+                    uiEffects.giveFeedback(Feedback.PERFECT);
                 else if (1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin) / 2.0f)
-                    uiEffects.giveFeedback("Excellent");
+                    uiEffects.giveFeedback(Feedback.GREAT);
                 else if (1 - rhythmManager.GetCurrentBeatProgress() < (perfectMargin + excellentMargin + goodMargin) / 2.0f)
-                    uiEffects.giveFeedback("Good");
+                    uiEffects.giveFeedback(Feedback.OKAY);
                 else
                 {
                     missedNote();
@@ -271,30 +272,30 @@ public class InputReceiver : MonoBehaviour
             {
                 if (progress < perfectMargin / 2.0f ||
                     1 - progress < perfectMargin / 2.0f)
-                    uiEffects.giveFeedback("Perfect");
+                    uiEffects.giveFeedback(Feedback.PERFECT);
                 else if (progress < (perfectMargin + excellentMargin) / 2.0f ||
                     1 - progress < (perfectMargin + excellentMargin) / 2.0f)
-                    uiEffects.giveFeedback("Excellent");
+                    uiEffects.giveFeedback(Feedback.GREAT);
                 else if (progress < (perfectMargin + excellentMargin + goodMargin) / 2.0f ||
                     1 - progress < (perfectMargin + excellentMargin + goodMargin) / 2.0f)
-                    uiEffects.giveFeedback("Good");
+                    uiEffects.giveFeedback(Feedback.OKAY);
                 else
                 {
-                    uiEffects.giveFeedback("Miss");
+                    uiEffects.giveFeedback(Feedback.MISS);
                     return false;
                 }
             }
             else
             {
                 if (1 - progress < perfectMargin / 2.0f)
-                    uiEffects.giveFeedback("Perfect");
+                    uiEffects.giveFeedback(Feedback.PERFECT);
                 else if (1 - progress < (perfectMargin + excellentMargin) / 2.0f)
-                    uiEffects.giveFeedback("Excellent");
+                    uiEffects.giveFeedback(Feedback.GREAT);
                 else if (1 - progress < (perfectMargin + excellentMargin + goodMargin) / 2.0f)
-                    uiEffects.giveFeedback("Good");
+                    uiEffects.giveFeedback(Feedback.OKAY);
                 else
                 {
-                    uiEffects.giveFeedback("Miss");
+                    uiEffects.giveFeedback(Feedback.MISS);
                     return false;
                 }
             }
@@ -309,13 +310,13 @@ public class InputReceiver : MonoBehaviour
     {
         if (levelManager.getCurrentEvent().type == LevelEventType.SIMON_SAYS)
         {
-            uiEffects.giveFeedback("Miss");
+            uiEffects.giveFeedback(Feedback.MISS);
             rhythmManager.setGameState(State.SIMONTEACH);
         }
         else if (levelManager.getCurrentEvent().type == LevelEventType.FREE_AREA)
         {
             comboHandler.ResetCombo();
-            uiEffects.giveFeedback("Miss");
+            uiEffects.giveFeedback(Feedback.MISS);
             rhythmManager.emptyCommandString();
             movementController.moveBackward();
         }

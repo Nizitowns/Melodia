@@ -8,6 +8,9 @@ using UnityEngine.InputSystem;
 public class Level2Cutscene : Cutscene
 {
     [SerializeField]
+    private Border border;
+
+    [SerializeField]
     private GameObject background;
 
     [SerializeField]
@@ -27,6 +30,7 @@ public class Level2Cutscene : Cutscene
     {
         if (count == 0)
         {
+            border.setRestingAlpha(0f);
             Color c = background1.GetComponent<Image>().color;
             background1.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
             background1.GetComponent<Image>().enabled = true;
