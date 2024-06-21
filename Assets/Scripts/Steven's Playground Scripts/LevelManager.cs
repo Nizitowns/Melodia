@@ -46,7 +46,7 @@ public class LevelManager : MonoBehaviour
         public string screenText; // What text to display on the screen (placeholder for quick testing)
         public bool doCommand; // Whether the game should execute the command completed during simon says (SIMON_SAYS, NEW_TRIBE)
         public bool doSimon; // Whether the game should perform the teaching portion of simon says (SIMON_SAYS, NEW_TRIBE, OBSTACLE)
-        public int repetitions; // How many repetitions must be completed to progress past simon says (SIMON_SAYS, NEW_TRIBE)
+        public int repetitions; // How many repetitions must be completed to progress past simon says (SIMON_SAYS, NEW_TRIBE, OBSTACLE)
         public GameObject obstacle; // The GameObject that represents the obstacle or new tribe (NEW_TRIBE, OBSTACLE)
         public Command newTribeCommand; // What command the new tribe is teaching the player (NEW_TRIBE)
         public Command obstacleCommand; // What command must be input to clear the obstacle (OBSTACLE)
