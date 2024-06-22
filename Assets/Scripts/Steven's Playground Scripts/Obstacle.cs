@@ -13,6 +13,10 @@ public class Obstacle : MonoBehaviour
     private bool entering = false;
     private bool joining = false;
 
+    //Should the Obstacle Join when it spawns?
+    [SerializeField]
+    private bool joinOnStart=false;
+
     public void enter()
     {
         entering = true;
@@ -25,6 +29,12 @@ public class Obstacle : MonoBehaviour
 
     private void Update()
     {
+
+        if (joinOnStart&&Time.timeSinceLevelLoad>3f)
+        {
+            joinTribe();
+        }
+
         if (entering && transform.localPosition.x > 6f)
         {
             transform.SetLocalPositionAndRotation(transform.localPosition + new Vector3(-3f * Time.deltaTime, 0f, 0f), Quaternion.identity);
@@ -36,9 +46,9 @@ public class Obstacle : MonoBehaviour
         {
             float leftmost = 0f;
             foreach (Transform t in tribe.GetComponentInChildren<Transform>())
-                if (t.tag == "Tribe" && t.localPosition.x < leftmost)
+                if (t.tag == "Tribe" && t.localPosition.x < leftmost&&t!=transform)
                     leftmost = t.localPosition.x;
-            if (transform.localPosition.x > leftmost - 1.5f)
+            if (transform.localPosition.x > leftmost - 3f)
                 transform.SetLocalPositionAndRotation(transform.localPosition + new Vector3(-3f * Time.deltaTime, 0f, 0f), Quaternion.identity);
             else
             {
