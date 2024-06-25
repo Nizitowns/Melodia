@@ -180,12 +180,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
-  m_AssetsPPU: 50
-  m_RefResolutionX: 1102
-  m_RefResolutionY: 482
+  m_AssetsPPU: 200
+  m_RefResolutionX: 4408
+  m_RefResolutionY: 1928
   m_CropFrame: 4
   m_GridSnapping: 2
-  m_FilterMode: 0
+  m_FilterMode: 1
   m_UpscaleRT: 0
   m_PixelSnapping: 0
   m_CropFrameX: 0
