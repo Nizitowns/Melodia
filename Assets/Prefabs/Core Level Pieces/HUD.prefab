@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a03023d6e3c04fc45aa0df465d0ad005, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 219595f202289d94da1d5abd81b8ce66, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2214,6 +2214,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayTime: 0.25
+  perfect: {fileID: 0}
+  great: {fileID: 0}
+  okay: {fileID: 0}
+  miss: {fileID: 0}
 --- !u!1001 &8375103552698278234
 PrefabInstance:
   m_ObjectHideFlags: 0
