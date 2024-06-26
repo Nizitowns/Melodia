@@ -72,6 +72,7 @@ public class Obstacle : MonoBehaviour
             {
                 tag = "Tribe";
                 joining = false;
+                joinOnStart = false;
                 GetComponent<SpriteRenderer>().flipX = false;
             }
         }
