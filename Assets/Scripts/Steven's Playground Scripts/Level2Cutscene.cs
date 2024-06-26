@@ -11,13 +11,13 @@ public class Level2Cutscene : Cutscene
     private Border border;
 
     [SerializeField]
-    private GameObject background;
+    private CanvasGroup background;
 
     [SerializeField]
-    private GameObject background1;
+    private CanvasGroup background1;
 
     [SerializeField]
-    private GameObject background2;
+    private CanvasGroup background2;
 
     // Count for cutscene events
     private int count = 0;
@@ -31,13 +31,12 @@ public class Level2Cutscene : Cutscene
         if (count == 0)
         {
             border.setRestingAlpha(0f);
-            Color c = background1.GetComponent<Image>().color;
-            background1.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
-            background1.GetComponent<Image>().enabled = true;
+            background1.alpha = alpha;
+            background1.gameObject.SetActive(true);
             if (alpha < 1f)
             {
                 alpha += 0.5f * Time.deltaTime;
-                background1.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background1.alpha = alpha;
             }
             else
             {
@@ -59,8 +58,7 @@ public class Level2Cutscene : Cutscene
             if (alpha > 0f)
             {
                 alpha -= 0.5f * Time.deltaTime;
-                Color c = background1.GetComponent<Image>().color;
-                background1.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background1.alpha = alpha;
             }
             else
             {
@@ -71,13 +69,11 @@ public class Level2Cutscene : Cutscene
 
         if (count == 3)
         {
-            Color c = background2.GetComponent<Image>().color;
-            background2.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
-            background2.GetComponent<Image>().enabled = true;
+            background2.gameObject.SetActive(true);
             if (alpha < 1f)
             {
                 alpha += 0.5f * Time.deltaTime;
-                background2.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background2.alpha = alpha;
             }
             else
             {
@@ -102,8 +98,7 @@ public class Level2Cutscene : Cutscene
             if (alpha > 0f)
             {
                 alpha -= 0.5f * Time.deltaTime;
-                Color c = background2.GetComponent<Image>().color;
-                background2.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background2.alpha = alpha;
             }
             else
             {
@@ -117,8 +112,7 @@ public class Level2Cutscene : Cutscene
             if (alpha > 0f)
             {
                 alpha -= 0.5f * Time.deltaTime;
-                Color c = background.GetComponent<Image>().color;
-                background.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background.alpha = alpha;
             }
             else
             {
