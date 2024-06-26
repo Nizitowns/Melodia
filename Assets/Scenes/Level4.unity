@@ -1398,10 +1398,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6908020926655525190, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
-      propertyPath: moveDistance
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6954484547743481143, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       propertyPath: m_Size.x
       value: 172.8
