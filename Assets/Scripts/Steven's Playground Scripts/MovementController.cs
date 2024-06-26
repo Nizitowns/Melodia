@@ -98,19 +98,31 @@ public class MovementController : MonoBehaviour
     private void moveTribe()
     {
         moved = true;
+        int i = 0;
         foreach (Transform t in tribe.GetComponentInChildren<Transform>())
-            if (t.gameObject.tag == "Tribe" && t.localPosition.x < -5f)
+        {
+            if (t.gameObject.GetComponent<Animator>())
+                t.gameObject.GetComponent<Animator>().enabled = true;
+            if (t.gameObject.tag == "Tribe" && t.localPosition.x < -5f - i * 2)
             {
                 t.gameObject.GetComponent<Transform>().SetLocalPositionAndRotation(t.localPosition + new Vector3(Time.deltaTime * 2f, 0f, 0f), Quaternion.identity);
                 moved = false;
             }
+            else
+            {
+                if (t.gameObject.GetComponent<Animator>())
+                    t.gameObject.GetComponent<Animator>().enabled = false;
+            }
+            i++;
+        }
+            
     }
 
     #endregion
 
     #region Tribe Movement
 
-    /// <summary>
+    /*/// <summary>
     /// Start drifting the tribe.
     /// </summary>
     public void startDrift()
@@ -137,7 +149,7 @@ public class MovementController : MonoBehaviour
             progress -= driftDistance;
         }
 
-    }
+    }*/
 
     /// <summary>
     ///  Move the tribe forward.
@@ -168,7 +180,10 @@ public class MovementController : MonoBehaviour
     private void Update()
     {
         if (firstMove && !moved)
+        {
             moveTribe();
+        }
+            
     }
 
     #endregion

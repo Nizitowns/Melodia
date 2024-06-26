@@ -203,7 +203,8 @@ public class InputReceiver : MonoBehaviour
             if (checkTiming(rhythmManager.isBeatUsed()))
             {
                 // If in Simon Says mode, check the input is the correct button
-                if (levelManager.getCurrentEvent().type == LevelEventType.SIMON_SAYS || levelManager.getCurrentEvent().type == LevelEventType.NEW_TRIBE)
+                if (levelManager.getCurrentEvent().type == LevelEventType.SIMON_SAYS || levelManager.getCurrentEvent().type == LevelEventType.NEW_TRIBE
+                    || levelManager.getCurrentEvent().type == LevelEventType.OBSTACLE)
                 {
                     if (!commandManager.checkSimon(button))
                         missedNote();
@@ -308,7 +309,8 @@ public class InputReceiver : MonoBehaviour
     /// </summary>
     public void missedNote()
     {
-        if (levelManager.getCurrentEvent().type == LevelEventType.SIMON_SAYS)
+        if (levelManager.getCurrentEvent().type == LevelEventType.SIMON_SAYS || levelManager.getCurrentEvent().type == LevelEventType.NEW_TRIBE
+            || levelManager.getCurrentEvent().type == LevelEventType.OBSTACLE)
         {
             uiEffects.giveFeedback(Feedback.MISS);
             rhythmManager.setGameState(State.SIMONTEACH);
@@ -318,7 +320,7 @@ public class InputReceiver : MonoBehaviour
             comboHandler.ResetCombo();
             uiEffects.giveFeedback(Feedback.MISS);
             rhythmManager.emptyCommandString();
-            movementController.moveBackward();
+            //movementController.moveBackward();
         }
     }
 

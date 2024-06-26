@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static LevelManager;
 
 public class CommandManager : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class CommandManager : MonoBehaviour
     private MovementController movementController;
     private RhythmManager rhythmManager;
     private InputReceiver inputReceiver;
+    private LevelManager levelManager;
 
     #endregion
 
@@ -60,6 +62,7 @@ public class CommandManager : MonoBehaviour
         movementController = MovementController.Instance;
         rhythmManager = RhythmManager.Instance;
         inputReceiver = InputReceiver.Instance;
+        levelManager = LevelManager.Instance;
     }
 
     #endregion
@@ -71,6 +74,7 @@ public class CommandManager : MonoBehaviour
     /// </summary>
     public bool checkSimon(int button)
     {
+        print(button + "," + rhythmManager.getSimonPattern()[rhythmManager.getBeatsPlayed() - 1]);
         return button == rhythmManager.getSimonPattern()[rhythmManager.getBeatsPlayed() - 1];
     }
 
@@ -159,7 +163,7 @@ public class CommandManager : MonoBehaviour
     private void move()
     {
         rhythmManager.resetStaticBeats();
-        movementController.stopDrift();
+        //movementController.stopDrift();
         movementController.moveForward();
     }
 

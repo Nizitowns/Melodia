@@ -12,6 +12,10 @@ public class Parallax : MonoBehaviour
     [Tooltip("Whether the parallax is scrolling left.")]
     private bool movingLeft;
 
+    [SerializeField]
+    [Tooltip("The Tribe container.")]
+    private GameObject tribe;
+
     // How far to move
     private float distanceToMove = 0f;
     // Width of one of the tiled textures
@@ -67,8 +71,26 @@ public class Parallax : MonoBehaviour
     {
         if (Mathf.Abs(distanceToMove) > 0f)
         {
+            foreach (Transform t in tribe.GetComponentsInChildren<Transform>())
+            {
+                if (t.gameObject.tag == "Tribe")
+                {
+                    t.gameObject.GetComponent<Animator>().enabled = true;
+                }
+            }
             Scroll();
             CheckReset();
+        }
+        else
+        {
+            foreach (Transform t in tribe.GetComponentsInChildren<Transform>())
+            {
+                if (t.gameObject.tag == "Tribe")
+                {
+                    if (!t.gameObject.GetComponent<Obstacle>() || !t.gameObject.GetComponent<Obstacle>().isJoining())
+                        t.gameObject.GetComponent<Animator>().enabled = false;
+                }
+            }
         }
     }
 }

@@ -213,9 +213,9 @@ public class RhythmManager : MonoBehaviour
     private void incrementStaticBeats()
     {
         staticBeats++;
-        if (staticBeats >= staticBeatLimit)
+        /*if (staticBeats >= staticBeatLimit)
             movementController.startDrift();
-        movementController.drift();
+        movementController.drift();*/
     }
 
     /// <summary>

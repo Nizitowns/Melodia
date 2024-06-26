@@ -22,9 +22,19 @@ public class Obstacle : MonoBehaviour
         entering = true;
     }
 
+    public bool isJoining()
+    {
+        return joining;
+    }
+
     public void joinTribe()
     {
         joining = true;
+    }
+
+    public void clear()
+    {
+        Destroy(gameObject);
     }
 
     private void Update()
@@ -37,13 +47,21 @@ public class Obstacle : MonoBehaviour
 
         if (entering && transform.localPosition.x > 6f)
         {
-            transform.SetLocalPositionAndRotation(transform.localPosition + new Vector3(-3f * Time.deltaTime, 0f, 0f), Quaternion.identity);
+            if (gameObject.GetComponent<Animator>())
+                gameObject.GetComponent<Animator>().enabled = true;
+            transform.SetLocalPositionAndRotation(transform.localPosition + new Vector3(-5f * Time.deltaTime, 0f, 0f), Quaternion.identity);
         }
         else
+        {
+            if (gameObject.GetComponent<Animator>())
+                gameObject.GetComponent<Animator>().enabled = false;
             entering = false;
+        }
 
         if (joining)
         {
+            if (gameObject.GetComponent<Animator>())
+                gameObject.GetComponent<Animator>().enabled = true;
             float leftmost = 0f;
             foreach (Transform t in tribe.GetComponentInChildren<Transform>())
                 if (t.tag == "Tribe" && t.localPosition.x < leftmost&&t!=transform)
