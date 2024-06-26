@@ -11,10 +11,10 @@ public class Level4Cutscene : Cutscene
     private Border border;
 
     [SerializeField]
-    private GameObject background;
+    private CanvasGroup background;
 
     [SerializeField]
-    private GameObject background1;
+    private CanvasGroup background1;
 
 
     // Count for cutscene events
@@ -29,13 +29,12 @@ public class Level4Cutscene : Cutscene
         if (count == 0)
         {
             border.setRestingAlpha(0f);
-            Color c = background1.GetComponent<Image>().color;
-            background1.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
-            background1.GetComponent<Image>().enabled = true;
+            background1.alpha = alpha;
+            background1.gameObject.SetActive(true);
             if (alpha < 1f)
             {
                 alpha += 0.5f * Time.deltaTime;
-                background1.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background1.alpha = alpha;
             }
             else
             {
@@ -57,8 +56,7 @@ public class Level4Cutscene : Cutscene
             if (alpha > 0f)
             {
                 alpha -= 0.5f * Time.deltaTime;
-                Color c = background1.GetComponent<Image>().color;
-                background1.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background1.alpha = alpha;
             }
             else
             {
@@ -85,8 +83,7 @@ public class Level4Cutscene : Cutscene
             if (alpha > 0f)
             {
                 alpha -= 0.5f * Time.deltaTime;
-                Color c = background.GetComponent<Image>().color;
-                background.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background.alpha = alpha;
             }
             else
             {
