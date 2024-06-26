@@ -20,16 +20,16 @@ public class Level1Tutorial : Cutscene
     private Border border;
 
     [SerializeField]
-    private GameObject background;
+    private CanvasGroup background;
 
     [SerializeField]
-    private GameObject background1;
+    private CanvasGroup background1;
 
     [SerializeField]
-    private GameObject background2;
+    private CanvasGroup background2;
 
     [SerializeField]
-    private GameObject background3;
+    private CanvasGroup background3;
 
     // The bpm
     private float bpm = 120f;
@@ -57,7 +57,7 @@ public class Level1Tutorial : Cutscene
            // buttonDore.transform.SetLocalPositionAndRotation(new Vector3(235f, 64f, 0f), Quaternion.identity);
            // buttonLa.transform.SetLocalPositionAndRotation(new Vector3(385f, 64f, 0f), Quaternion.identity);
             count++;
-            background1.GetComponent<Image>().enabled = true;
+            background1.gameObject.SetActive(true);
         }
 
         if (count == 1)
@@ -71,8 +71,7 @@ public class Level1Tutorial : Cutscene
             if (alpha > 0f)
             {
                 alpha -= 0.5f * Time.deltaTime;
-                Color c = background1.GetComponent<Image>().color;
-                background1.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background1.alpha = alpha;
             }
             else
             {
@@ -84,13 +83,11 @@ public class Level1Tutorial : Cutscene
 
         if (count == 3)
         {
-            Color c = background2.GetComponent<Image>().color;
-            background2.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
-            background2.GetComponent<Image>().enabled = true;
+            background2.alpha = alpha;
             if (alpha < 1f)
             {
                 alpha += 0.5f * Time.deltaTime;
-                background2.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background2.alpha = alpha;
             }
             else
             {
@@ -149,8 +146,7 @@ public class Level1Tutorial : Cutscene
             if (alpha > 0f)
             {
                 alpha -= 0.5f * Time.deltaTime;
-                Color c = background2.GetComponent<Image>().color;
-                background2.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background2.alpha = alpha;
             }
             else
             {
@@ -161,13 +157,12 @@ public class Level1Tutorial : Cutscene
 
         if (count == 8)
         {
-            Color c = background3.GetComponent<Image>().color;
-            background3.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
-            background3.GetComponent<Image>().enabled = true;
+            background3.alpha = alpha;
+            background3.gameObject.SetActive(true);
             if (alpha < 1f)
             {
                 alpha += 0.5f * Time.deltaTime;
-                background3.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background3.alpha = alpha;
             }
             else
             {
@@ -189,8 +184,7 @@ public class Level1Tutorial : Cutscene
             if (alpha > 0f)
             {
                 alpha -= 0.5f * Time.deltaTime;
-                Color c = background3.GetComponent<Image>().color;
-                background3.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background3.alpha = alpha;
             }
             else
             {
@@ -204,8 +198,7 @@ public class Level1Tutorial : Cutscene
             if (alpha > 0f)
             {
                 alpha -= 0.5f * Time.deltaTime;
-                Color c = background.GetComponent<Image>().color;
-                background.GetComponent<Image>().color = new Color(c.r, c.g, c.b, alpha);
+                background.alpha = alpha;
             }
             else
             {
