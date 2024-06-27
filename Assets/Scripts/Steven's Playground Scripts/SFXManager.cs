@@ -69,6 +69,9 @@ public class SFXManager : MonoBehaviour
             case 4:
                 name = button4Sound;
                 break;
+            default:
+                name = "Miss";
+                break;
         }
 
         AkSoundEngine.SetSwitch("RhythmInputSwitchGroup", name, gameObject);

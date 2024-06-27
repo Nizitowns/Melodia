@@ -207,7 +207,10 @@ public class InputReceiver : MonoBehaviour
                     || levelManager.getCurrentEvent().type == LevelEventType.OBSTACLE)
                 {
                     if (!commandManager.checkSimon(button))
+                    {
+                        button = 0;
                         missedNote();
+                    } 
                 }
                 // If in freeplay mode, check if the input goes toward a command
                 else if (levelManager.getCurrentEvent().type == LevelEventType.FREE_AREA)
@@ -282,6 +285,7 @@ public class InputReceiver : MonoBehaviour
                     uiEffects.giveFeedback(Feedback.OKAY);
                 else
                 {
+                    sfx.playButtonSound(0);
                     uiEffects.giveFeedback(Feedback.MISS);
                     return false;
                 }
@@ -296,6 +300,7 @@ public class InputReceiver : MonoBehaviour
                     uiEffects.giveFeedback(Feedback.OKAY);
                 else
                 {
+                    sfx.playButtonSound(0);
                     uiEffects.giveFeedback(Feedback.MISS);
                     return false;
                 }
@@ -314,8 +319,6 @@ public class InputReceiver : MonoBehaviour
         {
             uiEffects.giveFeedback(Feedback.MISS);
             rhythmManager.setGameState(State.SIMONTEACH);
-
-            AkSoundEngine.SetSwitch("RhythmInputSwitchGroup", "Miss", gameObject);
         }
         else if (levelManager.getCurrentEvent().type == LevelEventType.FREE_AREA)
         {
@@ -324,7 +327,6 @@ public class InputReceiver : MonoBehaviour
             rhythmManager.emptyCommandString();
             //movementController.moveBackward();
 
-            AkSoundEngine.SetSwitch("RhythmInputSwitchGroup", "Miss", gameObject);
         }
     }
 
