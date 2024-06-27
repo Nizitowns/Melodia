@@ -102,9 +102,6 @@ public class Level5Cutscene_Outro : Cutscene
                 ResetState();
                 break;
             case 7:
-                FadeOut(background);
-                break;
-            case 8:
                 over = true;
                 break;
 

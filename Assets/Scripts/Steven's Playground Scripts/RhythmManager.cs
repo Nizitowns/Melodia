@@ -46,6 +46,14 @@ public class RhythmManager : MonoBehaviour
     [Tooltip("The number of beats without progress before the tribe starts drifting backward.")]
     private int staticBeatLimit = 10;
 
+    [SerializeField]
+    [Tooltip("The border")]
+    private GameObject border;
+
+    [SerializeField]
+    [Tooltip("The frenzy border")]
+    private GameObject frenzyBorder;
+
     // Instances
     private InputReceiver inputReceiver;
     private UIEffects uiEffects;
@@ -54,6 +62,7 @@ public class RhythmManager : MonoBehaviour
     private SFXManager sfx;
     private MusicManager musicManager;
     private LevelManager levelManager;
+    private ComboHandler comboHandler;
 
     // Possible gamestates
     public enum State { DEFAULT, SIMONTEACH, SIMONPLAY, FREEPLAY };
@@ -100,6 +109,7 @@ public class RhythmManager : MonoBehaviour
         sfx = SFXManager.Instance;
         musicManager = MusicManager.Instance;
         levelManager = LevelManager.Instance;
+        comboHandler = ComboHandler.Instance;
 
         InitializeRhythm();
         InitializeSimon();
@@ -356,9 +366,22 @@ public class RhythmManager : MonoBehaviour
 
         configureBeat();
 
+        if (gameState == State.SIMONTEACH)
+        {
+            border.SetActive(false);
+            frenzyBorder.SetActive(false);
+        }
+        else
+        {
+            border.SetActive(true);
+            if (comboHandler.inFeverMode)
+                frenzyBorder.SetActive(true);
+        }
+
         switch (gameState)
         {
             case State.SIMONTEACH:
+                
                 inputReceiver.DisableGameplayInput();
                 if (beatsPlayed >= patternLength)
                 {
