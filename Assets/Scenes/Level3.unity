@@ -357,6 +357,34 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 201366493005403805, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 201366493005403805, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 201366493005403805, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1125452443}
+    - target: {fileID: 201366493005403805, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 201366493005403805, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: flicker
+      objectReference: {fileID: 0}
+    - target: {fileID: 201366493005403805, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Border, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 201366493005403805, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 594585875082673871, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -415,7 +443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2317093932187174544, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2611881306711446825, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -838,6 +866,14 @@ PrefabInstance:
       propertyPath: levelEvents.Array.data[4].onFinish.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4054847304841099936, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: frenzyBorder
+      value: 
+      objectReference: {fileID: 1125452439}
+    - target: {fileID: 5367377533506415765, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a03023d6e3c04fc45aa0df465d0ad005, type: 3}
     - target: {fileID: 5561413070949046887, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -906,6 +942,9 @@ PrefabInstance:
       addedObject: {fileID: 94308698}
     - targetCorrespondingSourceObject: {fileID: 253140040192741607, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       insertIndex: 6
+      addedObject: {fileID: 1125452440}
+    - targetCorrespondingSourceObject: {fileID: 253140040192741607, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      insertIndex: 7
       addedObject: {fileID: 2101767153}
     - targetCorrespondingSourceObject: {fileID: 3016959940747388030, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       insertIndex: -1
@@ -1289,6 +1328,95 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1125452439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1125452440}
+  - component: {fileID: 1125452443}
+  - component: {fileID: 1125452442}
+  - component: {fileID: 1125452441}
+  m_Layer: 0
+  m_Name: FrenzyBorder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1125452440
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125452439}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0199246, y: 1.0199246, z: 1.0199246}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 454566506}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.00024414062, y: -0.000061035156}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1125452441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125452439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 219595f202289d94da1d5abd81b8ce66, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1125452442
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125452439}
+  m_CullTransparentMesh: 1
+--- !u!114 &1125452443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125452439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c781f5f35dd96a04ab70f5f04e749ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerTime: 0.3
 --- !u!1 &1136574579
 GameObject:
   m_ObjectHideFlags: 0

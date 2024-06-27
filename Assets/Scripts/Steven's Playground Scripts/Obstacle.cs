@@ -53,7 +53,7 @@ public class Obstacle : MonoBehaviour
         }
         else
         {
-            if (gameObject.GetComponent<Animator>())
+            if (gameObject.GetComponent<Animator>() && gameObject.tag != "Tribe")
                 gameObject.GetComponent<Animator>().enabled = false;
             entering = false;
         }

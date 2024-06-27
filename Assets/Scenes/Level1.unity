@@ -122,6 +122,95 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3146717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3146718}
+  - component: {fileID: 3146721}
+  - component: {fileID: 3146720}
+  - component: {fileID: 3146719}
+  m_Layer: 0
+  m_Name: FrenzyBorder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &3146718
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3146717}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0194621, y: 1.0194621, z: 1.0194621}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1241008959}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0.5, y: 0.21868896}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3146719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3146717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 219595f202289d94da1d5abd81b8ce66, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &3146720
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3146717}
+  m_CullTransparentMesh: 1
+--- !u!114 &3146721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3146717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c781f5f35dd96a04ab70f5f04e749ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerTime: 0.3
 --- !u!1 &3325935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,10 +1516,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.11111111
-    width: 1
-    height: 0.77757615
+    x: 0.20520835
+    y: 0
+    width: 0.34890002
+    height: 0.2712963
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -4078,6 +4167,10 @@ PrefabInstance:
       propertyPath: m_MatchWidthOrHeight
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3521830796016142485, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a03023d6e3c04fc45aa0df465d0ad005, type: 3}
     - target: {fileID: 4013504027919449703, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
       propertyPath: m_Camera
       value: 
@@ -4159,6 +4252,14 @@ PrefabInstance:
       value: 468.19
       objectReference: {fileID: 0}
     - target: {fileID: 8671587473200902813, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671587473200902813, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671587473200902813, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
       propertyPath: button1Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1598737230}
@@ -4174,6 +4275,26 @@ PrefabInstance:
       propertyPath: button4Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1031304714}
+    - target: {fileID: 8671587473200902813, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 3146721}
+    - target: {fileID: 8671587473200902813, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671587473200902813, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: flicker
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671587473200902813, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Border, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671587473200902813, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
+      propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4732937131705496055, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
@@ -4195,6 +4316,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8727864583471035623, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
       insertIndex: 5
       addedObject: {fileID: 1967950384}
+    - targetCorrespondingSourceObject: {fileID: 8727864583471035623, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 3146718}
     - targetCorrespondingSourceObject: {fileID: 6191780805509768563, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 496196291}
@@ -4488,6 +4612,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3595127836674818004, guid: bf4af6ba233b32c49baf8642235e5c08, type: 3}
+      propertyPath: frenzyBorder
+      value: 
+      objectReference: {fileID: 3146717}
     - target: {fileID: 3595127836674818004, guid: bf4af6ba233b32c49baf8642235e5c08, type: 3}
       propertyPath: FeedbackUIGroup
       value: 

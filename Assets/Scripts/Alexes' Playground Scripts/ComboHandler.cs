@@ -35,6 +35,9 @@ public class ComboHandler : MonoBehaviour
 
     #region Combo Tracking
 
+    [SerializeField]
+    private GameObject frenzyBorder;
+
     public int comboCount = 0;
     public int maxComboCount = 0;
     public int currentNoteStreak = 0;
@@ -156,6 +159,7 @@ public class ComboHandler : MonoBehaviour
     /// </summary>
     private void EnterFeverMode()
     {
+        frenzyBorder.SetActive(true);
         // Activate Fever Mode
         inFeverMode = true;
 
@@ -189,6 +193,8 @@ public class ComboHandler : MonoBehaviour
         if (inFeverMode)
         {
             inFeverMode = false;
+
+            frenzyBorder.SetActive(false);
 
             // Reset score multiplier
             ScoreMultiplierHandler.Instance.ResetScoreMultiplier();
