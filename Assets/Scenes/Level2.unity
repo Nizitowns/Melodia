@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 116953451}
   - component: {fileID: 116953453}
   - component: {fileID: 116953452}
+  - component: {fileID: 116953454}
   m_Layer: 0
   m_Name: Rock Tribe
   m_TagString: Untagged
@@ -221,6 +222,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &116953454
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116953450}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a22311966a979684c9e19185739036c8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &259516541
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3941575933407658066, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       propertyPath: levelEvents.Array.data[5].type
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3941575933407658066, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       propertyPath: levelEvents.Array.data[2].doSimon
@@ -714,6 +736,10 @@ PrefabInstance:
       propertyPath: levelEvents.Array.data[4].obstacle
       value: 
       objectReference: {fileID: 116953450}
+    - target: {fileID: 3941575933407658066, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: levelEvents.Array.data[5].nextLevel
+      value: Level3
+      objectReference: {fileID: 0}
     - target: {fileID: 3941575933407658066, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       propertyPath: levelEvents.Array.data[0].areaLength
       value: 0
