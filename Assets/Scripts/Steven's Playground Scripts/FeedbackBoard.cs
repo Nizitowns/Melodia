@@ -89,6 +89,7 @@ public class FeedbackBoard : MonoBehaviour
     {
         timer = displayTime;
         transform.Find("message").gameObject.SetActive(true);
+        transform.Find("background").gameObject.SetActive(true);
     }
 
     #endregion
@@ -102,6 +103,7 @@ public class FeedbackBoard : MonoBehaviour
         else
         {
             transform.Find("message").gameObject.SetActive(false);
+            transform.Find("background").gameObject.SetActive(false);
         }
     }
 
