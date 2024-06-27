@@ -1,6 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
 	36542545	RhythmInputPlay			\Default Work Unit\RhythmInputPlay	
 	127190793	TutorialClickStop			\Default Work Unit\Music\TutorialClickStop	
+	1344976411	FeverStart			\Default Work Unit\FeverStart	
 	4005935157	MainMusicStart			\Default Work Unit\Music\MainMusicStart	
 	4065255915	TutorialClickStart			\Default Work Unit\Music\TutorialClickStart	
 
@@ -11,13 +12,16 @@ Switch	ID	Name	Switch Group			Notes
 	1702304872	La	RhythmInputSwitchGroup			
 	1836525774	Do	RhythmInputSwitchGroup			
 	2196622413	Dore	RhythmInputSwitchGroup			
+	3062523241	Miss	RhythmInputSwitchGroup			
 	3079300808	Mire	RhythmInputSwitchGroup			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	2085650	Mire	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Mac\SFX\Mire_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\Mire		61746
+	69738749	Miss	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Mac\SFX\RhythmInputMiss_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\Miss		53449
 	233236633	La	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Mac\SFX\La_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\La		57579
 	349763783	Main music	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Mac\SFX\Main music_D95B34B4.wem		\Interactive Music Hierarchy\Default Work Unit\MainPlaylist\MainMusic\Main music		10421161
 	482032752	TutorialLoop	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Mac\SFX\TutorialLoop_D95B34B4.wem		\Interactive Music Hierarchy\Default Work Unit\Tutorial\TutorialClick\TutorialLoop		111846
+	729277645	FeverStart	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Mac\SFX\FeverStart_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\FeverStart		156809
 	739340601	Dore	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Mac\SFX\Dore_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\Dore		67736
 	854899697	So	C:\Users\noah_\Documents\GitHub\Rapapan\Rapapan_WwiseProject\.cache\Mac\SFX\So_1839A0EA.wem		\Actor-Mixer Hierarchy\Default Work Unit\RhythmInput\So		60188
 

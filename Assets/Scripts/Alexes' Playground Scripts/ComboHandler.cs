@@ -81,8 +81,6 @@ public class ComboHandler : MonoBehaviour
 
     //in the combo test scene I made, these objects act as visual placeholders
     public GameObject feverModeEffect, comboBreakEffect;
-    
-    public AudioSource feverModeSound; // Sound effect for Fever Mode activation
 
     #endregion
 
@@ -171,11 +169,8 @@ public class ComboHandler : MonoBehaviour
             //spawn the feverModeEffect prefab clone at the location of the prefab
             Instantiate(feverModeEffect, FeedbackUIGroup);
         }
-        if (feverModeSound != null)
-        {
-            Debug.Log("Playing sound effect");
-            feverModeSound.Play();
-        }
+
+        AkSoundEngine.PostEvent("FeverStart", gameObject);
     }
 
     /// <summary>

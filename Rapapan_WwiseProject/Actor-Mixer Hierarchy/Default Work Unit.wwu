@@ -142,6 +142,35 @@
 								<ActiveSource Name="So" ID="{52B77081-288B-4569-BA4B-6E6F450A3790}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Miss" ID="{11256EF9-1992-45EB-8F20-1A416B0D9928}" ShortID="864323544">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2989FE60-5DF6-4CB0-BB30-6C7E4A37A4E1}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B8767363-259E-4161-95CB-8C0FFD9E984A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="RhythmInputMiss" ID="{75A69B4C-5565-4C80-896E-F614A8AFD4A9}">
+									<Language>SFX</Language>
+									<AudioFile>RhythmInputMiss.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="69738749"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="RhythmInputMiss" ID="{75A69B4C-5565-4C80-896E-F614A8AFD4A9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 					<GroupingInfo>
 						<GroupingBehaviorList>
@@ -185,12 +214,21 @@
 									</Property>
 								</PropertyList>
 							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Miss" ID="{11256EF9-1992-45EB-8F20-1A416B0D9928}"/>
+							</GroupingBehavior>
 						</GroupingBehaviorList>
 						<GroupingList>
 							<Grouping>
 								<SwitchRef Name="Mire" ID="{07E31006-F317-460E-A9D6-AA3C62DB0976}"/>
 								<ItemList>
 									<ItemRef Name="Mire" ID="{54FCEC49-2F6C-4317-9E15-756AA5061FE6}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="Miss" ID="{0E6E1736-3FE5-4D06-B845-01708341594B}"/>
+								<ItemList>
+									<ItemRef Name="Miss" ID="{11256EF9-1992-45EB-8F20-1A416B0D9928}"/>
 								</ItemList>
 							</Grouping>
 							<Grouping>
@@ -214,6 +252,35 @@
 						</GroupingList>
 					</GroupingInfo>
 				</SwitchContainer>
+				<Sound Name="FeverStart" ID="{B32AB1AE-9A9B-4DAF-8D52-7CB3BFADB51C}" ShortID="627467571">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2989FE60-5DF6-4CB0-BB30-6C7E4A37A4E1}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B8767363-259E-4161-95CB-8C0FFD9E984A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="FeverStart" ID="{87482506-1446-4E0C-988C-865B4872931A}">
+							<Language>SFX</Language>
+							<AudioFile>FeverStart.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="729277645"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="FeverStart" ID="{87482506-1446-4E0C-988C-865B4872931A}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

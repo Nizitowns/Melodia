@@ -55,6 +55,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="FeverStart" ID="{803D977D-3CE1-4E9A-86CD-38FD1405AB73}">
+					<ChildrenList>
+						<Action Name="" ID="{3A493572-4CA3-4C2D-97FB-19710A95587E}" ShortID="1025618294">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="FeverStart" ID="{B32AB1AE-9A9B-4DAF-8D52-7CB3BFADB51C}" WorkUnitID="{C16F0B89-6FC2-43EE-A0F4-4824465FEC3E}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

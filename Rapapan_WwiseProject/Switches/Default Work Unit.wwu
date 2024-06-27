@@ -9,6 +9,7 @@
 						<Switch Name="La" ID="{6F4B5BD9-50F7-4BF6-A891-A1BDFFF43AC3}"/>
 						<Switch Name="Mire" ID="{07E31006-F317-460E-A9D6-AA3C62DB0976}"/>
 						<Switch Name="Do" ID="{EE304E77-EE44-4D55-9F97-78245E5D63C6}"/>
+						<Switch Name="Miss" ID="{0E6E1736-3FE5-4D06-B845-01708341594B}"/>
 					</ChildrenList>
 				</SwitchGroup>
 			</ChildrenList>

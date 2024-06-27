@@ -27,18 +27,23 @@
 						<Switch Id="1702304872" Name="La"/>
 						<Switch Id="1836525774" Name="Do"/>
 						<Switch Id="2196622413" Name="Dore"/>
+						<Switch Id="3062523241" Name="Miss"/>
 						<Switch Id="3079300808" Name="Mire"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B8290A8D-DD97-55C7-8A89-B43AA5C119E5}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C5BCA7A9-F943-1FA0-FC6F-2A03D6516EE0}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
 				<File Id="2085650" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Mire.wav</ShortName>
 					<CachePath>SFX/Mire_1839A0EA.wem</CachePath>
+				</File>
+				<File Id="69738749" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RhythmInputMiss.wav</ShortName>
+					<CachePath>SFX/RhythmInputMiss_1839A0EA.wem</CachePath>
 				</File>
 				<File Id="233236633" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>La.wav</ShortName>
@@ -52,6 +57,10 @@
 					<ShortName>TutorialLoop.wav</ShortName>
 					<CachePath>SFX/TutorialLoop_D95B34B4.wem</CachePath>
 				</File>
+				<File Id="729277645" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FeverStart.wav</ShortName>
+					<CachePath>SFX/FeverStart_1839A0EA.wem</CachePath>
+				</File>
 				<File Id="739340601" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dore.wav</ShortName>
 					<CachePath>SFX/Dore_1839A0EA.wem</CachePath>
@@ -62,6 +71,11 @@
 				</File>
 			</Media>
 			<Events>
+				<Event Id="1344976411" Name="FeverStart" DurationType="OneShot" DurationMin="4.469146" DurationMax="4.469146">
+					<MediaRefs>
+						<MediaRef Id="729277645"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="4005935157" Name="MainMusicStart" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="349763783"/>
@@ -73,6 +87,12 @@
 							<SwitchValue GroupType="Switch" GroupId="762809784" Id="3079300808"/>
 							<MediaRefs>
 								<MediaRef Id="2085650"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="762809784" Id="3062523241"/>
+							<MediaRefs>
+								<MediaRef Id="69738749"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
@@ -112,11 +132,12 @@
 						<Switch Id="1702304872" Name="La"/>
 						<Switch Id="1836525774" Name="Do"/>
 						<Switch Id="2196622413" Name="Dore"/>
+						<Switch Id="3062523241" Name="Miss"/>
 						<Switch Id="3079300808" Name="Mire"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{838CCF25-A479-E537-42A4-F9F6248A9968}</FileHash>
+	<FileHash>{12C54897-2142-25E2-22AC-B705F25F074A}</FileHash>
 </SoundBanksInfo>

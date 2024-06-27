@@ -314,6 +314,8 @@ public class InputReceiver : MonoBehaviour
         {
             uiEffects.giveFeedback(Feedback.MISS);
             rhythmManager.setGameState(State.SIMONTEACH);
+
+            AkSoundEngine.SetSwitch("RhythmInputSwitchGroup", "Miss", gameObject);
         }
         else if (levelManager.getCurrentEvent().type == LevelEventType.FREE_AREA)
         {
@@ -321,6 +323,8 @@ public class InputReceiver : MonoBehaviour
             uiEffects.giveFeedback(Feedback.MISS);
             rhythmManager.emptyCommandString();
             //movementController.moveBackward();
+
+            AkSoundEngine.SetSwitch("RhythmInputSwitchGroup", "Miss", gameObject);
         }
     }
 
