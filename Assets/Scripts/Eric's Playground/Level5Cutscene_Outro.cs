@@ -80,10 +80,11 @@ public class Level5Cutscene_Outro : Cutscene
         {
             case 0:
                 border.setRestingAlpha(0f);
+                FadeIn(background);
                 FadeIn(background1);
                 break;
             case 1:
-                WaitTime(3);
+                WaitTime(6);
                 break;
             case 2:
                 FadeOut(background1);
