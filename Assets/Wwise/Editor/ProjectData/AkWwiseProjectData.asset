@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 60537c9e0fe6304b80516527ced18a39
     GuidInternal: 
-    m_lastTime: -8584833850970587705
+    m_lastTime: -8584820954221514065
     List:
     - name: MainMusicStart
       guid: e67ffa17ce19e7478750cf81203d350d
@@ -150,6 +150,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2
       minDuration: 2
+    - name: TutorialClickStart
+      guid: 204fce6d1d3d5c47ad76ef6e535ca767
+      id: 4065255915
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 60537c9e0fe6304b80516527ced18a39
+      - ElementName: Music
+        ObjectType: 4
+        guid: 36cebaf8ffc197429261ffd0b3efe413
+      - ElementName: TutorialClickStart
+        ObjectType: 3
+        guid: 204fce6d1d3d5c47ad76ef6e535ca767
+      Path: Events\Default Work Unit\Music\TutorialClickStart
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: TutorialClickStop
+      guid: 1d5d388930ea584084c86c6b666a95c9
+      id: 127190793
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 60537c9e0fe6304b80516527ced18a39
+      - ElementName: Music
+        ObjectType: 4
+        guid: 36cebaf8ffc197429261ffd0b3efe413
+      - ElementName: TutorialClickStop
+        ObjectType: 3
+        guid: 1d5d388930ea584084c86c6b666a95c9
+      Path: Events\Default Work Unit\Music\TutorialClickStop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:

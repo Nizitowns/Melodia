@@ -121,6 +121,7 @@ public class Level1Tutorial : Cutscene
                 buttonDore.setRestingAlpha(0f);
                 buttonLa.setRestingAlpha(0f);
                 inputReceiver.DisableGameplayInput();
+                AkSoundEngine.PostEvent("TutorialClickStop", gameObject);
                 count++;
                 timer = 0f;
             }
@@ -246,9 +247,12 @@ public class Level1Tutorial : Cutscene
 
     private IEnumerator startBeat()
     {
+        AkSoundEngine.PostEvent("TutorialClickStart", gameObject);
+
         while (count < 7)
         {
             yield return new WaitForSeconds(60f / bpm);
+            
             timer = 0f;
             uiEffects.flickerBorder();
         }

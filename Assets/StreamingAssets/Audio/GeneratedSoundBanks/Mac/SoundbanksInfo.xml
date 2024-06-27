@@ -32,7 +32,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{ED7669AE-AF23-9F0D-482D-DAC5E8D76CB0}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B8290A8D-DD97-55C7-8A89-B43AA5C119E5}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -48,13 +48,13 @@
 					<ShortName>Main music.wav</ShortName>
 					<CachePath>SFX/Main music_D95B34B4.wem</CachePath>
 				</File>
+				<File Id="482032752" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TutorialLoop.wav</ShortName>
+					<CachePath>SFX/TutorialLoop_D95B34B4.wem</CachePath>
+				</File>
 				<File Id="739340601" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dore.wav</ShortName>
 					<CachePath>SFX/Dore_1839A0EA.wem</CachePath>
-				</File>
-				<File Id="786987112" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>MainMusic_Click.wav</ShortName>
-					<CachePath>SFX/MainMusic_Click_D95B34B4.wem</CachePath>
 				</File>
 				<File Id="854899697" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>So.wav</ShortName>
@@ -65,7 +65,6 @@
 				<Event Id="4005935157" Name="MainMusicStart" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="349763783"/>
-						<MediaRef Id="786987112"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="36542545" Name="RhythmInputPlay" DurationType="OneShot" DurationMin="2" DurationMax="2">
@@ -96,6 +95,16 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
+				<Event Id="4065255915" Name="TutorialClickStart" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="482032752"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="127190793" Name="TutorialClickStop" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<MediaRefs>
+						<MediaRef Id="482032752"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 			<SwitchGroups>
 				<SwitchGroup Id="762809784" Name="RhythmInputSwitchGroup">
@@ -109,5 +118,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{193C6B01-06B1-9AA8-A810-4B23E5C25423}</FileHash>
+	<FileHash>{9F03B992-72F4-2186-C33C-D07BDD9B7923}</FileHash>
 </SoundBanksInfo>
