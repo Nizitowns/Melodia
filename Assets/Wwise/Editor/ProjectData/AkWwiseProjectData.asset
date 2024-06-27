@@ -12,14 +12,355 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7394a5f725eb15545a746f03247a2ad8, type: 3}
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
-  AcousticTextureWwu: []
-  AuxBusWwu: []
-  BankWwu: []
-  EventWwu: []
-  RtpcWwu: []
-  StateWwu: []
-  SwitchWwu: []
-  TriggerWwu: []
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Virtual Acoustics
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 993641601c95364abce570066c50cca7
+    ParentPath: Virtual Acoustics\Default Work Unit
+    guid: 993641601c95364abce570066c50cca7
+    GuidInternal: 
+    m_lastTime: -8584836393291573231
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Master-Mixer Hierarchy
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 637376b89e25614195cb8c0ffd9e984a
+    ParentPath: Master-Mixer Hierarchy\Default Work Unit
+    guid: 637376b89e25614195cb8c0ffd9e984a
+    GuidInternal: 
+    m_lastTime: -8584836393292103719
+    List:
+    - name: Master Audio Bus
+      guid: d8a41415a61d2a41a17e75ca0c2149f3
+      id: 3803692087
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 637376b89e25614195cb8c0ffd9e984a
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: SoundBanks
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 2c98ff527026364180be5ea246f77a6d
+    ParentPath: SoundBanks\Default Work Unit
+    guid: 2c98ff527026364180be5ea246f77a6d
+    GuidInternal: 
+    m_lastTime: -8584833564843310800
+    List:
+    - name: Main
+      guid: cea0c036d5854b4b9e3e47665d58ce53
+      id: 3161908922
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2c98ff527026364180be5ea246f77a6d
+      - ElementName: Main
+        ObjectType: 7
+        guid: cea0c036d5854b4b9e3e47665d58ce53
+      Path: SoundBanks\Default Work Unit\Main
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 60537c9e0fe6304b80516527ced18a39
+    ParentPath: Events\Default Work Unit
+    guid: 60537c9e0fe6304b80516527ced18a39
+    GuidInternal: 
+    m_lastTime: -8584820940004043283
+    List:
+    - name: FeverStart
+      guid: 7d973d80e13c9a4e86cd38fd1405ab73
+      id: 1344976411
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 60537c9e0fe6304b80516527ced18a39
+      - ElementName: FeverStart
+        ObjectType: 3
+        guid: 7d973d80e13c9a4e86cd38fd1405ab73
+      Path: Events\Default Work Unit\FeverStart
+      maxAttenuation: 0
+      maxDuration: 4.469146
+      minDuration: 4.469146
+    - name: MainMusicStart
+      guid: e67ffa17ce19e7478750cf81203d350d
+      id: 4005935157
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 60537c9e0fe6304b80516527ced18a39
+      - ElementName: Music
+        ObjectType: 4
+        guid: 36cebaf8ffc197429261ffd0b3efe413
+      - ElementName: MainMusicStart
+        ObjectType: 3
+        guid: e67ffa17ce19e7478750cf81203d350d
+      Path: Events\Default Work Unit\Music\MainMusicStart
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Music
+      guid: 36cebaf8ffc197429261ffd0b3efe413
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 60537c9e0fe6304b80516527ced18a39
+      - ElementName: Music
+        ObjectType: 4
+        guid: 36cebaf8ffc197429261ffd0b3efe413
+      Path: Events\Default Work Unit\Music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: RhythmInputPlay
+      guid: 2aff6bdd73f13642ad03b3af95082669
+      id: 36542545
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 60537c9e0fe6304b80516527ced18a39
+      - ElementName: RhythmInputPlay
+        ObjectType: 3
+        guid: 2aff6bdd73f13642ad03b3af95082669
+      Path: Events\Default Work Unit\RhythmInputPlay
+      maxAttenuation: 0
+      maxDuration: 2
+      minDuration: 2
+    - name: TutorialClickStart
+      guid: 204fce6d1d3d5c47ad76ef6e535ca767
+      id: 4065255915
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 60537c9e0fe6304b80516527ced18a39
+      - ElementName: Music
+        ObjectType: 4
+        guid: 36cebaf8ffc197429261ffd0b3efe413
+      - ElementName: TutorialClickStart
+        ObjectType: 3
+        guid: 204fce6d1d3d5c47ad76ef6e535ca767
+      Path: Events\Default Work Unit\Music\TutorialClickStart
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: TutorialClickStop
+      guid: 1d5d388930ea584084c86c6b666a95c9
+      id: 127190793
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 60537c9e0fe6304b80516527ced18a39
+      - ElementName: Music
+        ObjectType: 4
+        guid: 36cebaf8ffc197429261ffd0b3efe413
+      - ElementName: TutorialClickStop
+        ObjectType: 3
+        guid: 1d5d388930ea584084c86c6b666a95c9
+      Path: Events\Default Work Unit\Music\TutorialClickStop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Game Parameters
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 90d130cf438cd44592906609a1d84b05
+    ParentPath: Game Parameters\Default Work Unit
+    guid: 90d130cf438cd44592906609a1d84b05
+    GuidInternal: 
+    m_lastTime: -8584833991450803994
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: States
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 695c6512608e0e428bad5d9a0cc4fa7f
+    ParentPath: States\Default Work Unit
+    guid: 695c6512608e0e428bad5d9a0cc4fa7f
+    GuidInternal: 
+    m_lastTime: -8584833991450864058
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Switches
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: fc2bdf7de80c144e96000825ce6b03b5
+    ParentPath: Switches\Default Work Unit
+    guid: fc2bdf7de80c144e96000825ce6b03b5
+    GuidInternal: 
+    m_lastTime: -8584820936084178122
+    List:
+    - name: RhythmInputSwitchGroup
+      guid: 0706b11373356d43835a767db763ca9e
+      id: 762809784
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: fc2bdf7de80c144e96000825ce6b03b5
+      - ElementName: RhythmInputSwitchGroup
+        ObjectType: 11
+        guid: 0706b11373356d43835a767db763ca9e
+      Path: Switches\Default Work Unit\RhythmInputSwitchGroup
+      values:
+      - name: Do
+        guid: 774e30ee44ee554d9f9778245e5d63c6
+        id: 1836525774
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: fc2bdf7de80c144e96000825ce6b03b5
+        - ElementName: RhythmInputSwitchGroup
+          ObjectType: 11
+          guid: 0706b11373356d43835a767db763ca9e
+        - ElementName: Do
+          ObjectType: 10
+          guid: 774e30ee44ee554d9f9778245e5d63c6
+      - name: Dore
+        guid: e00d09c27f9ebc48bd44f6d061673df6
+        id: 2196622413
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: fc2bdf7de80c144e96000825ce6b03b5
+        - ElementName: RhythmInputSwitchGroup
+          ObjectType: 11
+          guid: 0706b11373356d43835a767db763ca9e
+        - ElementName: Dore
+          ObjectType: 10
+          guid: e00d09c27f9ebc48bd44f6d061673df6
+      - name: La
+        guid: d95b4b6ff750f64ba891a1bdfff43ac3
+        id: 1702304872
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: fc2bdf7de80c144e96000825ce6b03b5
+        - ElementName: RhythmInputSwitchGroup
+          ObjectType: 11
+          guid: 0706b11373356d43835a767db763ca9e
+        - ElementName: La
+          ObjectType: 10
+          guid: d95b4b6ff750f64ba891a1bdfff43ac3
+      - name: Mire
+        guid: 0610e30717f30e46a9d6aa3c62db0976
+        id: 3079300808
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: fc2bdf7de80c144e96000825ce6b03b5
+        - ElementName: RhythmInputSwitchGroup
+          ObjectType: 11
+          guid: 0706b11373356d43835a767db763ca9e
+        - ElementName: Mire
+          ObjectType: 10
+          guid: 0610e30717f30e46a9d6aa3c62db0976
+      - name: Miss
+        guid: 36176e0ee53f064db84501708341594b
+        id: 3062523241
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: fc2bdf7de80c144e96000825ce6b03b5
+        - ElementName: RhythmInputSwitchGroup
+          ObjectType: 11
+          guid: 0706b11373356d43835a767db763ca9e
+        - ElementName: Miss
+          ObjectType: 10
+          guid: 36176e0ee53f064db84501708341594b
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Triggers
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: d66686a6d4180843a9cc9375edfff247
+    ParentPath: Triggers\Default Work Unit
+    guid: d66686a6d4180843a9cc9375edfff247
+    GuidInternal: 
+    m_lastTime: -8584836393290892618
+    List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
