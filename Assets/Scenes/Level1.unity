@@ -1519,10 +1519,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.20781252
-    y: 0
-    width: 0.34294608
-    height: 0.26666665
+    x: 0
+    y: 0.11111111
+    width: 1
+    height: 0.77757615
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -4295,11 +4295,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6819447277662892329, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -69.6
+      value: -69.6001
       objectReference: {fileID: 0}
     - target: {fileID: 6819447277662892329, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -35.8
+      value: -35.80005
       objectReference: {fileID: 0}
     - target: {fileID: 6889304353405160601, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4759,6 +4759,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1241008962}
+    - target: {fileID: 4544846664856241446, guid: bf4af6ba233b32c49baf8642235e5c08, type: 3}
+      propertyPath: levelLength
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4544846664856241446, guid: bf4af6ba233b32c49baf8642235e5c08, type: 3}
       propertyPath: levelEvents.Array.data[4].type
       value: 5

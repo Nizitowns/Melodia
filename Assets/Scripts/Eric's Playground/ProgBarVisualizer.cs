@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ProgBarVisualizer : MonoBehaviour
 {
+    public static ProgBarVisualizer Instance { get; private set; }
     [Header("Visualized Value")]
     [Range(0,100f)]
     public float LevelProgress;
@@ -21,6 +22,10 @@ public class ProgBarVisualizer : MonoBehaviour
     public Image Star1;
     public Image Star2;
     public Image Star3;
+    private void Start()
+    {
+        Instance = this;
+    }
     private void FixedUpdate()
     {
         UpdateValue(LevelProgress);

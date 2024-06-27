@@ -64,7 +64,7 @@ public class MovementController : MonoBehaviour
     // Flag for whether the tribe has made their first move yet
     private bool firstMove = false;
     // Keeping track of the tribe's progress
-    private float progress = 0f;
+    public float progress = 0f;
 
     #endregion
 
@@ -179,6 +179,7 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
+
         if (firstMove && !moved)
         {
             moveTribe();
