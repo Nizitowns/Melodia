@@ -297,9 +297,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 199229462662631838, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: border
+      value: 
+      objectReference: {fileID: 537331975}
+    - target: {fileID: 199229462662631838, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 199229462662631838, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: frenzyBorder
+      value: 
+      objectReference: {fileID: 1129620483}
     - target: {fileID: 201366493005403805, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1832,6 +1840,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5352581393160662833, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
   m_PrefabInstance: {fileID: 537331972}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &537331975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2430472126931743284, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+  m_PrefabInstance: {fileID: 537331972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &659057484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2147,7 +2160,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1330480444357471595, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
   m_PrefabInstance: {fileID: 537331972}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 537331975}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c781f5f35dd96a04ab70f5f04e749ed4, type: 3}

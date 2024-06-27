@@ -1252,7 +1252,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7559890061439453547, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
   m_PrefabInstance: {fileID: 361406201982906140}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 361406201982906142}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c781f5f35dd96a04ab70f5f04e749ed4, type: 3}
@@ -4329,6 +4329,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6191780805509768563, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
   m_PrefabInstance: {fileID: 361406201982906140}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &361406201982906142 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6567948769514231348, guid: dd2d118a96318744cb2fc4b188056ef6, type: 3}
+  m_PrefabInstance: {fileID: 361406201982906140}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1945778709920088233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4612,6 +4617,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 820233199787594986, guid: bf4af6ba233b32c49baf8642235e5c08, type: 3}
+      propertyPath: border
+      value: 
+      objectReference: {fileID: 361406201982906142}
+    - target: {fileID: 820233199787594986, guid: bf4af6ba233b32c49baf8642235e5c08, type: 3}
+      propertyPath: frenzyBorder
+      value: 
+      objectReference: {fileID: 3146717}
     - target: {fileID: 3595127836674818004, guid: bf4af6ba233b32c49baf8642235e5c08, type: 3}
       propertyPath: frenzyBorder
       value: 

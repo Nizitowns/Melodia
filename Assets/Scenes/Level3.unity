@@ -354,9 +354,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 199229462662631838, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: border
+      value: 
+      objectReference: {fileID: 454566508}
+    - target: {fileID: 199229462662631838, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 199229462662631838, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+      propertyPath: frenzyBorder
+      value: 
+      objectReference: {fileID: 1125452439}
     - target: {fileID: 201366493005403805, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
       propertyPath: borderFlicker.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -977,12 +985,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1330480444357471595, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
   m_PrefabInstance: {fileID: 454566503}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 454566508}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c781f5f35dd96a04ab70f5f04e749ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &454566508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2430472126931743284, guid: 741e437b4b998fe428267134474fd0bd, type: 3}
+  m_PrefabInstance: {fileID: 454566503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &491537663
 GameObject:
   m_ObjectHideFlags: 0
