@@ -33,7 +33,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C5BCA7A9-F943-1FA0-FC6F-2A03D6516EE0}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{FE34B2A6-3BBE-02FE-4A01-250388C1D717}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -77,6 +77,11 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="4005935157" Name="MainMusicStart" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="349763783"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3712213655" Name="MainMusicStop" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<MediaRefs>
 						<MediaRef Id="349763783"/>
 					</MediaRefs>
@@ -139,5 +144,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{12C54897-2142-25E2-22AC-B705F25F074A}</FileHash>
+	<FileHash>{1F7000BB-2912-EF09-670E-99319724B4CD}</FileHash>
 </SoundBanksInfo>

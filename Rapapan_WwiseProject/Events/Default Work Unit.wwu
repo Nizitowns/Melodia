@@ -42,6 +42,21 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="MainMusicStop" ID="{F0248078-E302-4799-A9AD-E0B2A5922682}">
+							<ChildrenList>
+								<Action Name="" ID="{F194EF00-5FBC-43E2-85E5-5E8A924E5B3A}" ShortID="59268779">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MainPlaylist" ID="{BE15BEA2-43BA-4579-82F9-52032F7AB7AF}" WorkUnitID="{5F190E9F-ECDC-41A6-918C-67E7EE49648D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Event Name="RhythmInputPlay" ID="{DD6BFF2A-F173-4236-AD03-B3AF95082669}">

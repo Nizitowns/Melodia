@@ -2,6 +2,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	36542545	RhythmInputPlay			\Default Work Unit\RhythmInputPlay	
 	127190793	TutorialClickStop			\Default Work Unit\Music\TutorialClickStop	
 	1344976411	FeverStart			\Default Work Unit\FeverStart	
+	3712213655	MainMusicStop			\Default Work Unit\Music\MainMusicStop	
 	4005935157	MainMusicStart			\Default Work Unit\Music\MainMusicStart	
 	4065255915	TutorialClickStart			\Default Work Unit\Music\TutorialClickStart	
 

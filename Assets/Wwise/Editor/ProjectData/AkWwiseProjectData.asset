@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 60537c9e0fe6304b80516527ced18a39
     GuidInternal: 
-    m_lastTime: -8584820940004043283
+    m_lastTime: -8584820913336333603
     List:
     - name: FeverStart
       guid: 7d973d80e13c9a4e86cd38fd1405ab73
@@ -133,6 +133,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: MainMusicStop
+      guid: 788024f002e39947a9ade0b2a5922682
+      id: 3712213655
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 60537c9e0fe6304b80516527ced18a39
+      - ElementName: Music
+        ObjectType: 4
+        guid: 36cebaf8ffc197429261ffd0b3efe413
+      - ElementName: MainMusicStop
+        ObjectType: 3
+        guid: 788024f002e39947a9ade0b2a5922682
+      Path: Events\Default Work Unit\Music\MainMusicStop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Music
       guid: 36cebaf8ffc197429261ffd0b3efe413
       id: 3991942870

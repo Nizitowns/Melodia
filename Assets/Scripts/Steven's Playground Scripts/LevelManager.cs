@@ -195,6 +195,8 @@ public class LevelManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
 
+        AkSoundEngine.PostEvent("MainMusicStop", gameObject);
+
         levelTransition.fadeIn();
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelEvents[eventIndex].nextLevel);
