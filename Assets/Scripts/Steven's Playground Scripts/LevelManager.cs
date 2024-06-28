@@ -65,9 +65,8 @@ public class LevelManager : MonoBehaviour
     [Tooltip("The list of level events for this level.")]
     private List<LevelEvent> levelEvents;
 
-    [SerializeField]
     [Tooltip("The summed lenght of the walking areas for this level.")]
-    private float levelLength=10;
+    private float levelLength;
     // Instances
     private RhythmManager rhythmManager;
     private LevelTransition levelTransition;
@@ -86,6 +85,15 @@ public class LevelManager : MonoBehaviour
         rhythmManager = RhythmManager.Instance;
         levelTransition = LevelTransition.Instance;
         inputReceiver = InputReceiver.Instance;
+
+        levelLength = 0;
+        foreach(LevelEvent e in levelEvents)
+        {
+            if (e.type == LevelEventType.FREE_AREA)
+            {
+                levelLength += e.areaLength;
+            }
+        }
 
         setRhythmState();
     }
@@ -180,6 +188,7 @@ public class LevelManager : MonoBehaviour
     {
         Text text = canvas.transform.Find("Text").gameObject.GetComponent<Text>();
         text.text = "";
+        summed_progress += getCurrentEvent().areaLength;
         nextEvent();
     }
 
@@ -215,19 +224,10 @@ public class LevelManager : MonoBehaviour
 
     
     float summed_progress=0;
-    float last_progress=0;
-    int lastEventIndex;
     private void Update()
     {
-        float cur_progress = summed_progress + MovementController.Instance.progress;
-        if(lastEventIndex!=eventIndex)
-        {
-            summed_progress = last_progress;
-            lastEventIndex = eventIndex;
-        }
-        last_progress = cur_progress;
-        Debug.Log(cur_progress + " / " + levelLength);
-        ProgBarVisualizer.Instance?.UpdateValue((cur_progress/ levelLength)*100f);
+
+        ProgBarVisualizer.Instance?.UpdateTargValue((summed_progress + MovementController.Instance.progress)/ (levelLength) * 100f);
         doEvent();
     }
 

@@ -30,6 +30,15 @@ public class ProgBarVisualizer : MonoBehaviour
     {
         UpdateValue(LevelProgress);
     }
+    public void UpdateTargValue(float newTargVal)
+    {
+        if(Mathf.Abs(newTargVal-LevelProgress)<0.1f)
+        {
+            LevelProgress = newTargVal;
+        }
+        else
+            LevelProgress = Mathf.Lerp(LevelProgress, newTargVal, 0.1f);
+    }
     public void UpdateValue(float newVal)
     {
         LevelProgress = newVal;
